@@ -935,6 +935,7 @@
   }
 
   function setLayerVolume(id, percent) {
+    if (!audioState.layers[id] && percent <= 0) { audioState.layerVolumes[id] = 0; return; }
     const ctx = ensureAudio();
     if (!audioState.layers[id]) {
       const out = ctx.createGain();
@@ -998,6 +999,12 @@
   // ============================================================
   function startSleepTimer(minutes) {
     clearSleepTimer();
+    if (audioState.sleepFade && audioState.ctx) {
+      const fctx = audioState.ctx;
+      audioState.sleepFade.gain.cancelScheduledValues(fctx.currentTime);
+      audioState.sleepFade.gain.setValueAtTime(audioState.sleepFade.gain.value, fctx.currentTime);
+      audioState.sleepFade.gain.linearRampToValueAtTime(1, fctx.currentTime + 0.3);
+    }
     if (minutes <= 0) { timerDisplayEl.textContent = '--:--'; return; }
     ensureAudio();
     audioState.timer.endAt = Date.now() + minutes * 60000;
@@ -1045,7 +1052,7 @@
       setTimeout(function () {
         audioState.sleepFade.gain.cancelScheduledValues(ctx.currentTime);
         audioState.sleepFade.gain.setValueAtTime(1, ctx.currentTime);
-      }, 200);
+      }, 800);
     }
     updateWaveformState();
   }
@@ -1332,9 +1339,29 @@
     updateWaveformState();
   }
 
+  let presetMemoryFallback = null;
   function loadUserPresets() {
-    try { return JSON.parse(localStorage.getItem('asmr_ff_presets') || '[]'); }
+    if (presetMemoryFallback) return presetMemoryFallback;
+    try {
+      const parsed = JSON.parse(localStorage.getItem('asmr_ff_presets') || '[]');
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(function (p) {
+        return p && typeof p === 'object' && typeof p.name === 'string' && p.name.trim() &&
+          (p.binaural === null || p.binaural === undefined || Object.prototype.hasOwnProperty.call(BANDS, p.binaural));
+      }).map(function (p) {
+        const layers = {};
+        LAYERS.forEach(function (l) {
+          const v = p.layers && typeof p.layers === 'object' ? Number(p.layers[l.id]) : 0;
+          layers[l.id] = isFinite(v) ? clamp(Math.round(v), 0, 100) : 0;
+        });
+        return { name: p.name.slice(0, 24), layers: layers, binaural: p.binaural || null };
+      });
+    }
     catch (e) { return []; }
+  }
+  function persistUserPresets(list) {
+    try { localStorage.setItem('asmr_ff_presets', JSON.stringify(list)); presetMemoryFallback = null; }
+    catch (e) { presetMemoryFallback = list; }
   }
 
   function saveUserPreset(name) {
@@ -1350,14 +1377,14 @@
       return p.name && p.name.trim().toLowerCase() === name.toLowerCase();
     });
     if (existingIndex >= 0) { saved[existingIndex] = entry; } else { saved.push(entry); }
-    try { localStorage.setItem('asmr_ff_presets', JSON.stringify(saved)); } catch (e) {}
+    persistUserPresets(saved);
     renderUserPresets();
   }
 
   function deleteUserPreset(index) {
     const saved = loadUserPresets();
     saved.splice(index, 1);
-    try { localStorage.setItem('asmr_ff_presets', JSON.stringify(saved)); } catch (e) {}
+    persistUserPresets(saved);
     renderUserPresets();
   }
 
@@ -1447,7 +1474,7 @@
 
   function currentEnergyLevel() {
     let sum = 0;
-    document.querySelectorAll('.layer-card input[type=range]').forEach(function (s) { sum += parseInt(s.value, 10); });
+    Object.keys(audioState.layerVolumes).forEach(function (k) { sum += audioState.layerVolumes[k] || 0; });
     return Math.min(1, sum / 260);
   }
 
@@ -1739,7 +1766,7 @@
     else if (key === 'ink') inkSetup();
     else if (key === 'ice') iceSetup();
     else if (key === 'kaleido') kaleidoSetup();
-    else if (key === 'waves') { fxCtx.fillStyle = '#171019'; fxCtx.fillRect(0, 0, fxW, fxH); }
+    else if (key === 'waves') { fxCtx.fillStyle = '#171019'; fxCtx.fillRect(0, 0, fxW, fxH); if (reducedMotion) wavesTick(); }
   }
 
   function setActiveFx(key) {
@@ -1794,7 +1821,7 @@
   function fxTick() {
     if (activeFx === 'ink') inkTick();
     else if (activeFx === 'bubbles') bubblesDrawFrame();
-    else if (activeFx === 'waves') wavesTick();
+    else if (activeFx === 'waves' && !reducedMotion) wavesTick();
     requestAnimationFrame(fxTick);
   }
 
