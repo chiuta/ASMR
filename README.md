@@ -32,6 +32,10 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 7. În „Presetări”, apasă o presetare încorporată sau scrie un nume (Enter sau **Salvează**) pentru a-ți salva combinația curentă de straturi și banda binaurală activă.
 8. **Pauză tot** oprește temporar toate sunetele; același buton le reia.
 
+## Avertisment
+
+Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrierile benzilor binaurale (Delta, Theta, Alpha, Beta) sunt asocieri populare; dovezile științifice privind efectul lor asupra somnului, concentrării sau stării de spirit sunt limitate, iar aplicația nu este un dispozitiv medical și nu tratează nicio afecțiune. Ține volumul la un nivel confortabil; dacă ai epilepsie, tinnitus sau altă afecțiune, cere sfatul unui medic înainte de utilizare îndelungată.
+
 ## Confidențialitate și rețea
 
 - **Stocare locală (localStorage):** o singură cheie, `asmr_ff_presets`, cu presetările tale salvate (nume, niveluri ale straturilor, bandă binaurală). Dacă browserul blochează stocarea, presetările rămân doar în memorie până la reîncărcare.
@@ -54,3 +58,5 @@ Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf
 ## English summary
 
 ASMR fără frontiere is a single-file ASMR sound mixer: layered soundscapes (rain, ocean, fire, wind, crickets, white/pink/brown noise), touch triggers, interactive visual effects, binaural beats (Delta/Theta/Alpha/Beta) and a sleep timer, all synthesised live with the Web Audio API. It makes no network requests; only user-saved presets are kept in localStorage. UI is in Romanian. License not yet declared explicitly.
+
+Audit: 2026-10-10 — verificat cod (fără cereri de rețea), accesibilitate (axe) și funcționare; adăugat avertisment.
