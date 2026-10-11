@@ -4,6 +4,8 @@ Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local 
 
 **Live:** https://chiuta.github.io/ASMR/
 
+**Ultima actualizare:** 11 octombrie 2026
+
 ![Captura de ecran](screenshot.png)
 
 ## Ce este
@@ -44,6 +46,12 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
+
+## Istoric / Changelog
+
+### 11 octombrie 2026
+- Adăugat CSP strict (fără rețea, fără resurse externe); verificare: axe 0 violări, fără erori în consolă, fără depășire orizontală la 360 px.
+- Calitatea sunetului sintetizat nu poate fi evaluată automat; neschimbată în această rundă.
 
 ## Licență
 
