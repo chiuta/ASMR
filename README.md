@@ -20,7 +20,10 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 - **Bătăi binaurale**: benzile Delta, Theta, Alpha și Beta, cu volum separat și buton **Pornește**. Aplicația recomandă căști stereo.
 - **Cronometru de adormire**: 15, 30, 45, 60 sau 90 min, sau „Oprit”; afișaj al timpului rămas.
 - **Presetări**: șase presetări încorporate (Ploaie de noapte, Furtună pe ocean, Foc de tabără, Concentrare, Adormire, Liniște) și presetări proprii, salvate cu nume (maximum 24 de caractere).
-- Buton **Pauză tot / Redă tot** și **Volum general**.
+- Buton **Pauză tot / Redă tot** și **Volum general**; buton **Oprește toate straturile** (aduce straturile la 0 și oprește bătăile binaurale).
+- Cronometru cu **durată personalizată** (1–480 min, cu mesaj de eroare la valoare invalidă); cronometrul are rol `timer` pentru cititoarele de ecran.
+- Presetarea **Ultima combinație**: ultimul mix cu cel puțin un strat sau bătăi active se păstrează automat și se poate relua dintr-un clic.
+- Scurtături globale: **Spațiu** sau **P** = pauză/redare, **+** / **−** = volum general (±5), când focusul nu e pe un câmp sau buton.
 - Tastele Enter și Spațiu activează declanșatoarele când acestea au focus.
 
 ## Manual de utilizare
@@ -40,7 +43,7 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 
 ## Confidențialitate și rețea
 
-- **Stocare locală (localStorage):** o singură cheie, `asmr_ff_presets`, cu presetările tale salvate (nume, niveluri ale straturilor, bandă binaurală). Dacă browserul blochează stocarea, presetările rămân doar în memorie până la reîncărcare.
+- **Stocare locală (localStorage):** două chei: `asmr_ff_presets` (presetările tale salvate: nume, niveluri ale straturilor, bandă binaurală) și `asmr_ff_last` (ultima combinație: niveluri și bandă, fără nume). Dacă browserul blochează stocarea, presetările rămân doar în memorie până la reîncărcare.
 - **Rețea:** în cod nu există cereri de rețea (`fetch`), scripturi, fonturi sau imagini încărcate din exterior și nici linkuri externe. Nu există analytics.
 
 ## Rulare locală / offline
@@ -50,6 +53,7 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Es
 ## Istoric / Changelog
 
 ### 11 octombrie 2026
+- Nou: durată personalizată pentru cronometru, „Oprește toate straturile”, presetarea „Ultima combinație”, scurtături de tastatură; CSP cu hash pentru script (fără `'unsafe-inline'` la scripturi). Captura de ecran actualizată.
 - Adăugat CSP strict (fără rețea, fără resurse externe); verificare: axe 0 violări, fără erori în consolă, fără depășire orizontală la 360 px.
 - Calitatea sunetului sintetizat nu poate fi evaluată automat; neschimbată în această rundă.
 

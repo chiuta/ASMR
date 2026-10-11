@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src blob: data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src  'sha256-6blulSXItJ2j+vfP1jZYMLuy1Dqf3Wedjmvoy4MjzFU='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src blob: data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#171019">
 <meta name="description" content="ASMR fără frontiere — peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local în browser.">
 <title>ASMR fără frontiere</title>
@@ -398,6 +398,10 @@
     padding: var(--space-2) 0;
   }
 
+  .layer-actions { margin-top: 12px; }
+  .timer-custom { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; font-size: .85rem; }
+  .timer-custom input { width: 6.5em; min-height: 40px; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--accent-cool-dim); background: transparent; color: inherit; font: inherit; }
+  kbd { border: 1px solid currentColor; border-radius: 4px; padding: 0 5px; font: inherit; font-size: .85em; }
   .preset-save {
     display: flex;
     gap: var(--space-2);
@@ -487,6 +491,7 @@
       <div>
         <h1>ASMR <span class="accent">fără frontiere</span></h1>
         <p class="subtitle">Peisaje sonore, declanșatoare tactile și bătăi binaurale — sintetizate local, în timp real, direct în browser.</p>
+        <p class="hint">Scurtături: <kbd>Spațiu</kbd> sau <kbd>P</kbd> = pauză/redare, <kbd>+</kbd> / <kbd>−</kbd> = volum general. </p>
         <p class="hint">Atinge orice control pentru a porni sunetul (browserul cere un gest al utilizatorului înainte de a reda audio).</p>
       </div>
       <div class="header-controls">
@@ -504,6 +509,7 @@
       <h2>Peisaje sonore</h2>
       <p class="panel-note">Poți combina mai multe straturi în același timp.</p>
       <div class="layer-grid" id="layerGrid"></div>
+      <div class="layer-actions"><button class="btn" id="stopAll" type="button">Oprește toate straturile</button></div>
     </section>
 
     <section class="panel triggers">
@@ -554,7 +560,12 @@
           <button class="chip" data-min="90" type="button">90 min</button>
           <button class="chip" data-min="0" type="button">Oprit</button>
         </div>
-        <div class="timer-display" id="timerDisplay">--:--</div>
+        <div class="timer-custom">
+          <label for="timerCustom">Altă durată (minute, 1–480)</label>
+          <input type="number" id="timerCustom" min="1" max="480" step="1" inputmode="numeric" placeholder="ex. 20">
+          <button class="btn" id="timerCustomGo" type="button">Pornește</button>
+        </div>
+        <div class="timer-display" id="timerDisplay" role="timer" aria-label="Timp rămas până la oprire">--:--</div>
       </div>
     </section>
 
@@ -562,6 +573,7 @@
       <h2>Presetări</h2>
       <div class="presets-panel-inner">
         <div class="preset-chips" id="builtinPresets"></div>
+        <div class="preset-chips" id="lastMixWrap"></div>
         <div class="preset-save">
           <input type="text" id="presetName" placeholder="Nume presetare" aria-label="Nume presetare nouă" maxlength="24">
           <button class="btn" id="savePreset" type="button">Salvează</button>
@@ -1126,6 +1138,7 @@
       .some(function (s) { return parseInt(s.value, 10) > 0; });
     const anyBinaural = binauralToggleEl.dataset.active === 'true';
     waveformEl.classList.toggle('active', (anyLayer || anyBinaural) && !masterPaused);
+    if (anyLayer || anyBinaural) saveLastMix();
   }
 
   // ---- Straturi UI ----
@@ -1290,6 +1303,28 @@
     }
   });
 
+  document.getElementById('stopAll').addEventListener('click', function () {
+    LAYERS.forEach(function (l) { setLayerSliderAndVolume(l.id, 0); });
+    if (binauralToggleEl.dataset.active === 'true') {
+      stopBinaural(0.4);
+      binauralToggleEl.textContent = 'Pornește';
+      binauralToggleEl.dataset.active = 'false';
+    }
+    updateWaveformState();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    const t = e.target && e.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT' || t === 'BUTTON') return;
+    if (e.key === ' ' || e.key === 'p' || e.key === 'P') { e.preventDefault(); masterPlayPauseEl.click(); }
+    else if (e.key === '+' || e.key === '=' || e.key === '-') {
+      e.preventDefault();
+      const v = clamp(parseInt(masterVolumeEl.value, 10) + (e.key === '-' ? -5 : 5), 0, 100);
+      masterVolumeEl.value = v;
+      masterVolumeEl.dispatchEvent(new Event('input'));
+    }
+  });
+
   // ---- Master ----
   masterPlayPauseEl.addEventListener('click', function () {
     const ctx = ensureAudio();
@@ -1315,11 +1350,28 @@
   document.querySelectorAll('.timer-chips .chip').forEach(function (btn) {
     btn.addEventListener('click', function () {
       ensureAudio();
-      document.querySelectorAll('.timer-chips .chip').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
+      document.querySelectorAll('.timer-chips .chip').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
       startSleepTimer(parseInt(btn.dataset.min, 10));
     });
   });
+
+  const timerCustomEl = document.getElementById('timerCustom');
+  function startCustomTimer() {
+    const v = parseInt(timerCustomEl.value, 10);
+    if (!isFinite(v) || v < 1 || v > 480) {
+      timerCustomEl.setAttribute('aria-invalid', 'true');
+      timerDisplayEl.textContent = 'Introdu 1–480';
+      timerCustomEl.focus();
+      return;
+    }
+    timerCustomEl.removeAttribute('aria-invalid');
+    ensureAudio();
+    document.querySelectorAll('.timer-chips .chip').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+    startSleepTimer(v);
+  }
+  document.getElementById('timerCustomGo').addEventListener('click', startCustomTimer);
+  timerCustomEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') startCustomTimer(); });
 
   // ---- Presetări ----
   function applyPreset(preset) {
@@ -1360,6 +1412,35 @@
       });
     }
     catch (e) { return []; }
+  }
+  function saveLastMix() {
+    try {
+      const layers = {};
+      LAYERS.forEach(function (l) {
+        const sl = document.querySelector('.layer-card[data-id="' + l.id + '"] input[type=range]');
+        layers[l.id] = sl ? parseInt(sl.value, 10) : 0;
+      });
+      const active = binauralToggleEl.dataset.active === 'true';
+      localStorage.setItem('asmr_ff_last', JSON.stringify({ layers: layers, binaural: active ? binauralBandEl.value : null }));
+    } catch (e) { /* stocare indisponibilă */ }
+    renderLastMix();
+  }
+  function renderLastMix() {
+    const wrap = document.getElementById('lastMixWrap');
+    if (!wrap) return;
+    let last = null;
+    try { last = JSON.parse(localStorage.getItem('asmr_ff_last') || 'null'); } catch (e) { last = null; }
+    if (!last || typeof last !== 'object' || !last.layers || (last.binaural && !Object.prototype.hasOwnProperty.call(BANDS, last.binaural))) { wrap.textContent = ''; return; }
+    const layers = {};
+    LAYERS.forEach(function (l) { const v = Number(last.layers[l.id]); layers[l.id] = isFinite(v) ? clamp(Math.round(v), 0, 100) : 0; });
+    const preset = { name: 'Ultima combinație', layers: layers, binaural: last.binaural || null };
+    let b = wrap.querySelector('button');
+    if (!b) {
+      b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.id = 'lastMixBtn';
+      b.textContent = 'Ultima combinație';
+      wrap.appendChild(b);
+    }
+    b.onclick = function () { ensureAudio(); applyPreset(preset); };
   }
   function persistUserPresets(list) {
     try { localStorage.setItem('asmr_ff_presets', JSON.stringify(list)); presetMemoryFallback = null; }
@@ -1861,6 +1942,7 @@
     buildLayerUI();
     buildTriggerUI();
     buildPresetUI();
+    renderLastMix();
     buildFxTabs();
     initWaveformBars();
     binauralDescEl.textContent = BANDS[binauralBandEl.value].desc;
