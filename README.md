@@ -20,6 +20,7 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 - **Bătăi binaurale**: benzile Delta, Theta, Alpha și Beta, cu volum separat și buton **Pornește**. Aplicația recomandă căști stereo.
 - **Cronometru de adormire**: 15, 30, 45, 60 sau 90 min, sau „Oprit”; afișaj al timpului rămas.
 - **Presetări**: șase presetări încorporate (Ploaie de noapte, Furtună pe ocean, Foc de tabără, Concentrare, Adormire, Liniște) și presetări proprii, salvate cu nume (maximum 24 de caractere).
+- **Mix partajabil prin link**: „Copiază linkul mixului” generează o adresă cu `#mix=…` (straturile active cu volum și, dacă e pornită, banda binaurală). Cine deschide linkul vede butonul „Redă mixul din link”; sunetul nu pornește singur. Valorile din link sunt validate (doar straturi cunoscute, volum 1–100). Presetările afișează mesaje de stare (nume lipsă, salvat, link copiat).
 - Buton **Pauză tot / Redă tot** și **Volum general**; buton **Oprește toate straturile** (aduce straturile la 0 și oprește bătăile binaurale).
 - Cronometru cu **durată personalizată** (1–480 min, cu mesaj de eroare la valoare invalidă); cronometrul are rol `timer` pentru cititoarele de ecran.
 - Presetarea **Ultima combinație**: ultimul mix cu cel puțin un strat sau bătăi active se păstrează automat și se poate relua dintr-un clic.
@@ -51,6 +52,9 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
 
 ## Istoric / Changelog
+
+### 11 octombrie 2026 (a treia intrare)
+- Mix partajabil prin link, cu aplicare doar la apăsarea unui buton; mesaje de stare la presetări (înainte, salvarea fără nume nu dădea niciun răspuns).
 
 ### 11 octombrie 2026
 - Nou: durată personalizată pentru cronometru, „Oprește toate straturile”, presetarea „Ultima combinație”, scurtături de tastatură; CSP cu hash pentru script (fără `'unsafe-inline'` la scripturi). Captura de ecran actualizată.

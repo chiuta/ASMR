@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src  'sha256-6blulSXItJ2j+vfP1jZYMLuy1Dqf3Wedjmvoy4MjzFU='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src blob: data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-/cVffOOl1sJFDaL8n9LnZA2RuZj66gO1l1p4m2h1YS0='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src blob: data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#171019">
 <meta name="description" content="ASMR fără frontiere — peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local în browser.">
 <title>ASMR fără frontiere</title>
@@ -479,6 +479,8 @@
   @media (prefers-reduced-motion: reduce) {
     .waveform .bar { animation: none !important; height: 16px !important; }
   }
+  #mixLink{ width:100%; margin-top:.5rem; background:transparent; color:inherit; border:1px solid currentColor; border-radius:8px; padding:.45rem .6rem; font:inherit; font-size:.8rem; }
+  #mixLink[hidden]{ display:none; }
 </style>
 </head>
 <body>
@@ -577,7 +579,11 @@
         <div class="preset-save">
           <input type="text" id="presetName" placeholder="Nume presetare" aria-label="Nume presetare nouă" maxlength="24">
           <button class="btn" id="savePreset" type="button">Salvează</button>
+          <button class="btn" id="copyMixLink" type="button">Copiază linkul mixului</button>
         </div>
+        <p class="hint" id="presetMsg" role="status"></p>
+        <input type="text" id="mixLink" readonly hidden aria-label="Linkul mixului curent, pentru copiere manuală">
+        <div class="preset-chips" id="linkMixWrap"></div>
         <div class="preset-chips" id="userPresets"></div>
       </div>
     </section>
@@ -1511,13 +1517,67 @@
 
   savePresetEl.addEventListener('click', function () {
     const name = presetNameEl.value.trim();
-    if (!name) { presetNameEl.focus(); return; }
+    if (!name) { say('Scrie un nume pentru presetare (maximum 24 de caractere).'); presetNameEl.focus(); return; }
     saveUserPreset(name);
     presetNameEl.value = '';
+    say('Presetarea „' + name + '” a fost salvată.');
   });
   presetNameEl.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') savePresetEl.click();
   });
+
+  // ---- mix partajabil prin link (#mix=...): nimic nu pornește singur; sunetul începe doar la apăsarea butonului ----
+  const presetMsgEl = document.getElementById('presetMsg');
+  function say(t) { presetMsgEl.textContent = t; }
+  function currentMixHash() {
+    const parts = [];
+    LAYERS.forEach(function (l) {
+      const slider = document.querySelector('.layer-card[data-id="' + l.id + '"] input[type=range]');
+      const v = slider ? parseInt(slider.value, 10) : 0;
+      if (v > 0) parts.push(l.id + '~' + v);
+    });
+    let h = 'mix=' + parts.join('.');
+    if (binauralToggleEl.dataset.active === 'true') h += '&b=' + binauralBandEl.value;
+    return h;
+  }
+  function parseMixHash(hash) {
+    const m = /^#?mix=([A-Za-z0-9~.]*)(?:&b=([A-Za-z]+))?$/.exec(hash || '');
+    if (!m) return null;
+    const layers = {}; let any = false;
+    m[1].split('.').forEach(function (p) {
+      const kv = p.split('~');
+      if (kv.length === 2 && LAYER_BY_ID[kv[0]]) {
+        const v = parseInt(kv[1], 10);
+        if (isFinite(v) && v > 0) { layers[kv[0]] = clamp(v, 0, 100); any = true; }
+      }
+    });
+    const band = m[2] && BANDS[m[2]] ? m[2] : null;
+    if (!any && !band) return null;
+    return { name: 'Mix din link', layers: layers, binaural: band };
+  }
+  document.getElementById('copyMixLink').addEventListener('click', function () {
+    const h = currentMixHash();
+    if (h === 'mix=') { say('Nu există niciun strat activ de partajat. Ridică un glisor sau pornește bătăile binaurale.'); return; }
+    const link = location.href.split('#')[0] + '#' + h;
+    const box = document.getElementById('mixLink');
+    box.value = link; box.hidden = false;
+    const fallback = function () { box.focus(); box.select(); say('Copiază manual linkul selectat (Ctrl+C).'); };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link).then(function () { box.hidden = true; say('Linkul mixului a fost copiat.'); }, fallback);
+      } else fallback();
+    } catch (e) { fallback(); }
+  });
+  (function () {
+    const linked = parseMixHash(location.hash);
+    if (!linked) return;
+    const wrap = document.getElementById('linkMixWrap');
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.textContent = 'Redă mixul din link';
+    b.addEventListener('click', function () { ensureAudio(); applyPreset(linked); say('Mixul din link a fost aplicat.'); });
+    wrap.appendChild(b);
+    say('Acest link conține un mix. Apasă „Redă mixul din link” ca să-l pornești (sunetul nu pornește singur).');
+  })();
 
   // ============================================================
   // Fundal animat: particule + ripple la atingere
