@@ -4,7 +4,7 @@ Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local 
 
 **Live:** https://chiuta.github.io/ASMR/
 
-**Ultima actualizare:** 11 octombrie 2026
+**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
 
 ![Captura de ecran](screenshot.png)
 
@@ -52,6 +52,9 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
 
 ## Istoric / Changelog
+
+### 12 octombrie 2026 (v1.0.0)
+- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
 
 ### 11 octombrie 2026 (a treia intrare)
 - Mix partajabil prin link, cu aplicare doar la apăsarea unui buton; mesaje de stare la presetări (înainte, salvarea fără nume nu dădea niciun răspuns).
