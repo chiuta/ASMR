@@ -4,7 +4,7 @@ Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local 
 
 **Live:** https://chiuta.github.io/ASMR/
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 ![Captura de ecran](screenshot.png)
 
@@ -27,6 +27,14 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 - Scurtături globale: **Spațiu** sau **P** = pauză/redare, **+** / **−** = volum general (±5), când focusul nu e pe un câmp sau buton.
 - Tastele Enter și Spațiu activează declanșatoarele când acestea au focus.
 
+## Funcții noi (v1.1.0)
+
+- **Înregistrare WAV a mixului curent**: captează în timp real ieșirea aplicației (straturile active, bătăile binaurale și declanșatoarele atinse în acest timp), stereo, 16 biți, la durata aleasă (15 s – 5 min) sau până la „Oprește și salvează”; fișierul `asmr-mix-*.wav` se descarcă la final. Fără sunet activ refuză cu mesaj. Limită: înregistrarea durează cât durează sunetul (timp real, nu randare accelerată) și folosește `ScriptProcessorNode`; dacă browserul nu îl are, apare un mesaj.
+- **QR pentru mix**: generează un cod QR cu nivelurile straturilor (și bătăile binaurale) și îl poate citi înapoi din imagine sau din text lipit; QR-ul fără legătură web conține doar `#mix=…`. Imaginea fără QR nu modifică nimic.
+- **Ghid vocal de respirație** (`FFF.tts`): rostește „Inspiră” (4 s) și „Expiră” (6 s) în ritm lent, cu text vizibil și `aria-pressed`; fără sinteză vocală apare mesaj. Nu este indicație medicală.
+- **Kit**: Transparență și copie `.fff.json` (presetările sunt indexate), modulele `core, label, bundle, qr, tts`.
+- **Limbi și traduceri**: Aplicația are interfață doar în română; textele noi sunt în română. Dialogul „Transparență” al kitului este în 8 limbi (traduceri automate, **neverificate de vorbitori nativi**).
+
 ## Manual de utilizare
 
 1. Deschide pagina și atinge orice control: browserul cere un gest al utilizatorului înainte de a reda audio.
@@ -44,6 +52,8 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 
 ## Confidențialitate și rețea
 
+- Kitul „fără frontiere” (`fff-kit`, modulele `core, label, bundle, qr, tts`) este lipit în `index.html`: nu face cereri de rețea. Dialogul „Transparență” (clic pe versiune) arată rețeaua declarată (0 cereri externe), cheile din `localStorage`, SHA-256 al fișierului și oferă copie de siguranță `.fff.json` (opțional criptată cu parolă, AES-GCM). Codurile QR se generează și se citesc local; citirea se face doar dintr-o imagine aleasă de utilizator, fără cameră.
+
 - **Stocare locală (localStorage):** două chei: `asmr_ff_presets` (presetările tale salvate: nume, niveluri ale straturilor, bandă binaurală) și `asmr_ff_last` (ultima combinație: niveluri și bandă, fără nume). Dacă browserul blochează stocarea, presetările rămân doar în memorie până la reîncărcare.
 - **Rețea:** în cod nu există cereri de rețea (`fetch`), scripturi, fonturi sau imagini încărcate din exterior și nici linkuri externe. Nu există analytics.
 
@@ -52,6 +62,8 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
 
 ## Istoric / Changelog
+
+- 1.1.0 — 2026-10-14: înregistrare WAV, QR pentru mix, ghid vocal de respirație, kit „fără frontiere”. Teste: `tests/fff-r8.test.mjs`.
 
 ### 12 octombrie 2026 (v1.0.0)
 - 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
