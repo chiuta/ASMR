@@ -4,7 +4,7 @@ Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local 
 
 **Live:** https://chiuta.github.io/ASMR/
 
-**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
+**Versiune:** 1.1.1 · **Ultima actualizare:** 18 octombrie 2026
 
 ![Captura de ecran](screenshot.png)
 
@@ -63,6 +63,7 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Es
 
 ## Istoric / Changelog
 
+- 1.1.1 — 2026-10-18: importul unui pachet `.fff.json` îmbină presetările importate cu cele proprii (același nume = înlocuit cu cel din fișier; plafon de 50) în loc să le șteargă; teste.
 - 1.1.0 — 2026-10-14: înregistrare WAV, QR pentru mix, ghid vocal de respirație, kit „fără frontiere”. Teste: `tests/fff-r8.test.mjs`.
 
 ### 12 octombrie 2026 (v1.0.0)

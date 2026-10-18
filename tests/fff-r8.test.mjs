@@ -1,4 +1,4 @@
-// Teste R8 pentru ASMR fără frontiere 1.1.0: înregistrare WAV, QR pentru mix, ghid vocal.
+// Teste R8 pentru ASMR fără frontiere 1.1.1: înregistrare WAV, QR pentru mix, ghid vocal.
 // Rulare: node tests/fff-r8.test.mjs   (Playwright din /opt/node-tools, rețea blocată)
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -42,7 +42,7 @@ console.log('Pornire și versiune');
   const {ctx, p, errs, net} = await open(1280, 800);
   t('0 pageerror/CSP', errs.length === 0, errs.join('|'));
   t('0 cereri de rețea', net() === 0);
-  t('versiune 1.1.0', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.1.0' && /v 1\.1\.0 · 2026-10-14/.test(document.getElementById('app-version').textContent)));
+  t('versiune 1.1.1', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.1.1' && /v 1\.1\.1 · 2026-10-18/.test(document.getElementById('app-version').textContent)));
   t('kit prezent (core,label,bundle,qr,tts)', await p.evaluate(() => !!(window.FFF && FFF.label && FFF.bundle && FFF.qr && FFF.tts)));
   t('panou R8 vizibil', await p.locator('#r8Panel').isVisible());
   await ctx.close();
@@ -174,6 +174,28 @@ for (const [w, h] of [[1280, 800], [360, 740]]) {
   await axe(w, h, async (p) => { await p.click('#app-version'); await p.waitForTimeout(300); }, 'dialog Transparență');
   const {ctx, p} = await open(w, h);
   t('fără depășire orizontală ' + w, await p.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth));
+  await ctx.close();
+}
+console.log('Import pachet FFF: presetările se îmbină, nu se suprascriu');
+{
+  const {ctx, p, errs} = await open(1280, 800);
+  const R = await p.evaluate(async () => {
+    const mine = [{name: 'Al meu', layers: {}, binaural: null}, {name: 'Comun', layers: {}, binaural: null}];
+    localStorage.setItem('asmr_ff_presets', JSON.stringify(mine));
+    const inc = []; for (let i = 0; i < 60; i++) inc.push({name: 'Din fișier ' + i, layers: {}, binaural: null});
+    inc.push({name: 'comun', layers: {}, binaural: 'alpha'});
+    const env = {format: 'fff-bundle', schema: 1, app: 'asmr', version: '1.1.1', exported: new Date().toISOString(), data: {asmr_ff_presets: JSON.stringify(inc)}};
+    const f = new File([JSON.stringify(env)], 'x.fff.json', {type: 'application/json'});
+    const r = await FFF.bundle.import(f, {confirm: false, reload: false});
+    const out = JSON.parse(localStorage.getItem('asmr_ff_presets'));
+    return {r, n: out.length, names: out.map((x) => x.name), msg: document.getElementById('presetMsg').textContent};
+  });
+  t('import: presetarea proprie „Al meu” a rămas', R.names.includes('Al meu'), JSON.stringify(R).slice(0, 300));
+  t('import: presetările din fișier au fost adăugate', R.names.includes('Din fișier 0'));
+  t('import: același nume (fără litere mari) înlocuiește, nu dublează', R.names.filter((x) => x.toLowerCase() === 'comun').length === 1);
+  t('import: plafon 50 respectat', R.n === 50, R.n);
+  t('import: mesaj despre îmbinare', /îmbinate/.test(R.msg), R.msg);
+  t('import: fără erori', errs.length === 0, errs.join('|'));
   await ctx.close();
 }
 await b.close();
