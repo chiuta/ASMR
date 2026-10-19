@@ -1,4 +1,4 @@
-// Teste R8 pentru ASMR fără frontiere 1.1.1: înregistrare WAV, QR pentru mix, ghid vocal.
+// Teste R8 pentru ASMR fără frontiere 1.2.0: înregistrare WAV, QR pentru mix, ghid vocal.
 // Rulare: node tests/fff-r8.test.mjs   (Playwright din /opt/node-tools, rețea blocată)
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -14,7 +14,7 @@ function t(name, cond, extra) { if (cond) { ok++; console.log('  ok  ' + name); 
 
 const b = await chromium.launch({executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--autoplay-policy=no-user-gesture-required']});
 async function open(w, h, init, opts = {}) {
-  const ctx = await b.newContext({viewport: {width: w, height: h}, acceptDownloads: true, ...opts});
+  const ctx = await b.newContext({viewport: {width: w, height: h}, acceptDownloads: true, locale: 'ro-RO', ...opts});
   let net = 0; await ctx.route(/^https?:/, (r) => { net++; r.abort(); });
   if (init) await ctx.addInitScript(init);
   const p = await ctx.newPage(); const errs = [];
@@ -24,7 +24,7 @@ async function open(w, h, init, opts = {}) {
   return {ctx, p, errs, net: () => net};
 }
 async function axe(w, h, prep, label) {
-  const ctx = await b.newContext({viewport: {width: w, height: h}, bypassCSP: true}); await ctx.route(/^https?:/, (r) => r.abort());
+  const ctx = await b.newContext({viewport: {width: w, height: h}, bypassCSP: true, locale: 'ro-RO'}); await ctx.route(/^https?:/, (r) => r.abort());
   const p = await ctx.newPage(); await p.goto(FILE); await p.waitForTimeout(3600);
   await p.addScriptTag({content: fs.readFileSync(AXE, 'utf8')});
   if (prep) await prep(p);
@@ -42,7 +42,7 @@ console.log('Pornire și versiune');
   const {ctx, p, errs, net} = await open(1280, 800);
   t('0 pageerror/CSP', errs.length === 0, errs.join('|'));
   t('0 cereri de rețea', net() === 0);
-  t('versiune 1.1.1', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.1.1' && /v 1\.1\.1 · 2026-10-18/.test(document.getElementById('app-version').textContent)));
+  t('versiune 1.2.0', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.2.0' && /v 1\.2\.0 · 2026-10-19/.test(document.getElementById('app-version').textContent)));
   t('kit prezent (core,label,bundle,qr,tts)', await p.evaluate(() => !!(window.FFF && FFF.label && FFF.bundle && FFF.qr && FFF.tts)));
   t('panou R8 vizibil', await p.locator('#r8Panel').isVisible());
   await ctx.close();
@@ -100,7 +100,7 @@ console.log('QR pentru mix');
     const c = document.createElement('canvas'); c.width = 500; c.height = 500; const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, 500, 500); g.drawImage(img, 0, 0, 500, 500);
     const blob = await new Promise((r) => c.toBlob(r, 'image/png')); return Array.from(new Uint8Array(await blob.arrayBuffer()));
   });
-  await p.keyboard.press('Escape');
+  await p.keyboard.press('Escape'); await p.waitForTimeout(200);
   t('Escape închide dialogul', await p.locator('dialog.r8-dlg').count() === 0);
   await setLayer(p, 'rain', 0); await setLayer(p, 'wind', 0);
   await p.setInputFiles('#r8QrFile', {name: 'qr.png', mimeType: 'image/png', buffer: Buffer.from(png)});
