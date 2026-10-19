@@ -10,7 +10,7 @@ Hangtájképek, tapintási kiváltók és binaurális ütemek, helyben, a böng�
 
 **Élő változat:** https://chiuta.github.io/ASMR/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

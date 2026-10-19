@@ -10,7 +10,7 @@ Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local 
 
 **Live:** https://chiuta.github.io/ASMR/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

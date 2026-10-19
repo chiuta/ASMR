@@ -10,7 +10,7 @@ Paysages sonores, déclencheurs tactiles et battements binauraux, synthétisés 
 
 **En ligne :** https://chiuta.github.io/ASMR/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## De quoi s'agit-il
 

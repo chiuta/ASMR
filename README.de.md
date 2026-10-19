@@ -10,7 +10,7 @@ Klanglandschaften, taktile Trigger und binaurale Beats, lokal im Browser synthet
 
 **Online:** https://chiuta.github.io/ASMR/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

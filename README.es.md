@@ -10,7 +10,7 @@ Paisajes sonoros, desencadenantes táctiles y pulsos binaurales, sintetizados en
 
 **En línea:** https://chiuta.github.io/ASMR/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Qué es
 

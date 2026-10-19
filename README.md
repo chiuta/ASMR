@@ -10,7 +10,7 @@ Soundscapes, tactile triggers and binaural beats, synthesised locally in the bro
 
 **Live:** https://chiuta.github.io/ASMR/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

@@ -10,7 +10,7 @@ Paesaggi sonori, stimoli tattili e battiti binaurali, sintetizzati in locale nel
 
 **Online:** https://chiuta.github.io/ASMR/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 

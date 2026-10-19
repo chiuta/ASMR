@@ -10,7 +10,7 @@ Paisagens sonoras, estímulos táteis e batimentos binaurais, sintetizados local
 
 **Online:** https://chiuta.github.io/ASMR/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## O que é
 
