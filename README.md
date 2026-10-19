@@ -1,94 +1,96 @@
 # ASMR fără frontiere
 
-Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local în browser, într-un singur fișier HTML.
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
+
+**Version:** 1.1.1 · **Last updated:** 2026-10-18
+
+Soundscapes, tactile triggers and binaural beats, synthesised locally in the browser, in a single HTML file.
 
 **Live:** https://chiuta.github.io/ASMR/
 
-**Versiune:** 1.1.1 · **Ultima actualizare:** 18 octombrie 2026
+![Screenshot](screenshot.png)
 
-![Captura de ecran](screenshot.png)
+## What it is
 
-## Ce este
+A sound mixer for relaxation, written in plain JavaScript. The sound is not played from audio files: it is generated in real time through the Web Audio API. The app brings together combinable ambient layers, short sounds triggered by touch, interactive visual effects, binaural beats and a sleep timer.
 
-Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este redat din fișiere audio: este generat în timp real prin Web Audio API. Aplicația reunește straturi de ambient care se pot combina, sunete scurte declanșate prin atingere, efecte vizuale interactive, bătăi binaurale și un cronometru de adormire.
+## Features
 
-## Funcții
+- **Soundscapes** (combinable layers, each with its own volume): Rain, Ocean waves, Campfire, Wind, Night with crickets, White noise, Pink noise, Brown noise.
+- **Triggers**: Wood tapping, Glass tapping, Table tapping, Water drop, Page turn, Keyboard click, Paper rustle and Brushing (a continuous texture for as long as you hold it down).
+- **ASMR visual effects**: Kinetic sand, Bubble wrap, Ink in water, Cracking ice, Symmetric pattern, Light waves; **Clear** button.
+- **Binaural beats**: the Delta, Theta, Alpha and Beta bands, with a separate volume and a **Start** button. The app recommends stereo headphones.
+- **Sleep timer**: 15, 30, 45, 60 or 90 min, or "Off"; display of the time remaining.
+- **Presets**: six built-in presets (Night rain, Ocean storm, Campfire, Focus, Falling asleep, Calm) and your own presets, saved with a name (maximum 24 characters).
+- **Mix shareable by link**: "Copy mix link" generates an address with `#mix=…` (the active layers with volume and, if it is on, the binaural band). Whoever opens the link sees the "Play the mix from the link" button; the sound does not start by itself. The values in the link are validated (only known layers, volume 1–100). The presets show status messages (missing name, saved, link copied).
+- **Pause all / Play all** button and **Master volume**; **Stop all layers** button (brings the layers to 0 and stops the binaural beats).
+- Timer with **custom duration** (1–480 min, with an error message for an invalid value); the timer has the `timer` role for screen readers.
+- The **Last combination** preset: the last mix with at least one layer or beats active is kept automatically and can be resumed with one click.
+- Global shortcuts: **Space** or **P** = pause/play, **+** / **−** = master volume (±5), when focus is not on a field or button.
+- The Enter and Space keys activate the triggers when they have focus.
 
-- **Peisaje sonore** (straturi combinabile, fiecare cu propriul volum): Ploaie, Valuri de ocean, Foc de tabără, Vânt, Noapte cu greieri, Zgomot alb, Zgomot roz, Zgomot maro.
-- **Declanșatoare**: Ciocănit lemn, Ciocănit sticlă, Ciocănit masă, Picătură de apă, Foaie întoarsă, Clic tastatură, Foșnet hârtie și Periere (textura continuă cât timp ții apăsat).
-- **Efecte vizuale ASMR**: Nisip kinetic, Baloane cu folie, Cerneală în apă, Gheață care crapă, Model simetric, Valuri de lumină; buton **Curăță**.
-- **Bătăi binaurale**: benzile Delta, Theta, Alpha și Beta, cu volum separat și buton **Pornește**. Aplicația recomandă căști stereo.
-- **Cronometru de adormire**: 15, 30, 45, 60 sau 90 min, sau „Oprit”; afișaj al timpului rămas.
-- **Presetări**: șase presetări încorporate (Ploaie de noapte, Furtună pe ocean, Foc de tabără, Concentrare, Adormire, Liniște) și presetări proprii, salvate cu nume (maximum 24 de caractere).
-- **Mix partajabil prin link**: „Copiază linkul mixului” generează o adresă cu `#mix=…` (straturile active cu volum și, dacă e pornită, banda binaurală). Cine deschide linkul vede butonul „Redă mixul din link”; sunetul nu pornește singur. Valorile din link sunt validate (doar straturi cunoscute, volum 1–100). Presetările afișează mesaje de stare (nume lipsă, salvat, link copiat).
-- Buton **Pauză tot / Redă tot** și **Volum general**; buton **Oprește toate straturile** (aduce straturile la 0 și oprește bătăile binaurale).
-- Cronometru cu **durată personalizată** (1–480 min, cu mesaj de eroare la valoare invalidă); cronometrul are rol `timer` pentru cititoarele de ecran.
-- Presetarea **Ultima combinație**: ultimul mix cu cel puțin un strat sau bătăi active se păstrează automat și se poate relua dintr-un clic.
-- Scurtături globale: **Spațiu** sau **P** = pauză/redare, **+** / **−** = volum general (±5), când focusul nu e pe un câmp sau buton.
-- Tastele Enter și Spațiu activează declanșatoarele când acestea au focus.
+## New features (v1.1.0)
 
-## Funcții noi (v1.1.0)
+- **WAV recording of the current mix**: captures the app's output in real time (the active layers, the binaural beats and the triggers touched during that time), stereo, 16-bit, for the chosen duration (15 s – 5 min) or until "Stop and save"; the file `asmr-mix-*.wav` is downloaded at the end. With no active sound it refuses with a message. Limit: the recording lasts as long as the sound (real time, not accelerated rendering) and uses `ScriptProcessorNode`; if the browser does not have it, a message appears.
+- **QR for the mix**: generates a QR code with the layer levels (and the binaural beats) and can read it back from an image or from pasted text; the QR without a web link contains only `#mix=…`. An image without a QR changes nothing.
+- **Breathing voice guide** (`FFF.tts`): says "Breathe in" (4 s) and "Breathe out" (6 s) at a slow pace, with visible text and `aria-pressed`; without speech synthesis a message appears. It is not medical advice.
+- **Kit**: Transparency and `.fff.json` backup (the presets are indexed), the modules `core, label, bundle, qr, tts`.
+- **Languages and translations**: The app has an interface in Romanian only; the new texts are in Romanian. The kit's "Transparency" dialog is in 8 languages (machine translations, **not verified by native speakers**).
 
-- **Înregistrare WAV a mixului curent**: captează în timp real ieșirea aplicației (straturile active, bătăile binaurale și declanșatoarele atinse în acest timp), stereo, 16 biți, la durata aleasă (15 s – 5 min) sau până la „Oprește și salvează”; fișierul `asmr-mix-*.wav` se descarcă la final. Fără sunet activ refuză cu mesaj. Limită: înregistrarea durează cât durează sunetul (timp real, nu randare accelerată) și folosește `ScriptProcessorNode`; dacă browserul nu îl are, apare un mesaj.
-- **QR pentru mix**: generează un cod QR cu nivelurile straturilor (și bătăile binaurale) și îl poate citi înapoi din imagine sau din text lipit; QR-ul fără legătură web conține doar `#mix=…`. Imaginea fără QR nu modifică nimic.
-- **Ghid vocal de respirație** (`FFF.tts`): rostește „Inspiră” (4 s) și „Expiră” (6 s) în ritm lent, cu text vizibil și `aria-pressed`; fără sinteză vocală apare mesaj. Nu este indicație medicală.
-- **Kit**: Transparență și copie `.fff.json` (presetările sunt indexate), modulele `core, label, bundle, qr, tts`.
-- **Limbi și traduceri**: Aplicația are interfață doar în română; textele noi sunt în română. Dialogul „Transparență” al kitului este în 8 limbi (traduceri automate, **neverificate de vorbitori nativi**).
+## User guide
 
-## Manual de utilizare
+1. Open the page and touch any control: the browser requires a user gesture before playing audio.
+2. In "Soundscapes", raise the slider of one or more layers; adjust "Master volume".
+3. In "Triggers", touch a button for a short sound; for "Brushing" hold it down for as long as you want the texture.
+4. In "ASMR visual effects", choose an effect and interact with it; "Clear" resets it.
+5. In "Binaural beats", choose the band (Delta, Theta, Alpha or Beta), adjust the volume and press **Start**.
+6. For falling asleep, choose the duration in "Sleep timer"; the sound stops when the time expires. "Off" cancels the timer.
+7. In "Presets", press a built-in preset or type a name (Enter or **Save**) to save your current combination of layers and the active binaural band.
+8. **Pause all** temporarily stops all sounds; the same button resumes them.
 
-1. Deschide pagina și atinge orice control: browserul cere un gest al utilizatorului înainte de a reda audio.
-2. În „Peisaje sonore”, ridică glisorul unuia sau mai multor straturi; reglează „Volum general”.
-3. În „Declanșatoare”, atinge un buton pentru un sunet scurt; la „Periere” ține apăsat cât vrei textura.
-4. În „Efecte vizuale ASMR”, alege un efect și interacționează cu el; „Curăță” îl resetează.
-5. În „Bătăi binaurale”, alege banda (Delta, Theta, Alpha sau Beta), ajustează volumul și apasă **Pornește**.
-6. Pentru adormire, alege durata în „Cronometru de adormire”; sunetul se oprește la expirarea timpului. „Oprit” anulează cronometrul.
-7. În „Presetări”, apasă o presetare încorporată sau scrie un nume (Enter sau **Salvează**) pentru a-ți salva combinația curentă de straturi și banda binaurală activă.
-8. **Pauză tot** oprește temporar toate sunetele; același buton le reia.
+## Warning
 
-## Avertisment
+Informational and relaxation content; it does not replace medical advice. The descriptions of the binaural bands (Delta, Theta, Alpha, Beta) are popular associations; the scientific evidence for their effect on sleep, concentration or mood is limited, and the app is not a medical device and does not treat any condition. Keep the volume at a comfortable level; if you have epilepsy, tinnitus or another condition, ask a doctor for advice before prolonged use.
 
-Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrierile benzilor binaurale (Delta, Theta, Alpha, Beta) sunt asocieri populare; dovezile științifice privind efectul lor asupra somnului, concentrării sau stării de spirit sunt limitate, iar aplicația nu este un dispozitiv medical și nu tratează nicio afecțiune. Ține volumul la un nivel confortabil; dacă ai epilepsie, tinnitus sau altă afecțiune, cere sfatul unui medic înainte de utilizare îndelungată.
+## Privacy and network
 
-## Confidențialitate și rețea
+- The "without borders" kit (`fff-kit`, modules `core, label, bundle, qr, tts`) is pasted into `index.html`: it makes no network requests. The "Transparency" dialog (click on the version) shows the declared network (0 external requests), the `localStorage` keys, the SHA-256 of the file and offers a `.fff.json` backup (optionally encrypted with a password, AES-GCM). QR codes are generated and read locally; reading is done only from an image chosen by the user, without a camera.
 
-- Kitul „fără frontiere” (`fff-kit`, modulele `core, label, bundle, qr, tts`) este lipit în `index.html`: nu face cereri de rețea. Dialogul „Transparență” (clic pe versiune) arată rețeaua declarată (0 cereri externe), cheile din `localStorage`, SHA-256 al fișierului și oferă copie de siguranță `.fff.json` (opțional criptată cu parolă, AES-GCM). Codurile QR se generează și se citesc local; citirea se face doar dintr-o imagine aleasă de utilizator, fără cameră.
+- **Local storage (localStorage):** two keys: `asmr_ff_presets` (your saved presets: name, layer levels, binaural band) and `asmr_ff_last` (the last combination: levels and band, without a name). If the browser blocks storage, the presets stay in memory only until reload.
+- **Network:** there are no network requests (`fetch`), scripts, fonts or images loaded from outside in the code, and no external links. There are no analytics.
 
-- **Stocare locală (localStorage):** două chei: `asmr_ff_presets` (presetările tale salvate: nume, niveluri ale straturilor, bandă binaurală) și `asmr_ff_last` (ultima combinație: niveluri și bandă, fără nume). Dacă browserul blochează stocarea, presetările rămân doar în memorie până la reîncărcare.
-- **Rețea:** în cod nu există cereri de rețea (`fetch`), scripturi, fonturi sau imagini încărcate din exterior și nici linkuri externe. Nu există analytics.
+## Running locally / offline
 
-## Rulare locală / offline
+Download `index.html` and open it in a browser; it does not need internet. A browser with Web Audio API support and JavaScript enabled is required.
 
-Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
+## History / Changelog
 
-## Istoric / Changelog
+- 1.1.1 — 2026-10-18: importing a `.fff.json` bundle merges the imported presets with your own (same name = replaced with the one from the file; cap of 50) instead of deleting them; tests.
+- 1.1.0 — 2026-10-14: WAV recording, QR for the mix, breathing voice guide, "without borders" kit. Tests: `tests/fff-r8.test.mjs`.
 
-- 1.1.1 — 2026-10-18: importul unui pachet `.fff.json` îmbină presetările importate cu cele proprii (același nume = înlocuit cu cel din fișier; plafon de 50) în loc să le șteargă; teste.
-- 1.1.0 — 2026-10-14: înregistrare WAV, QR pentru mix, ghid vocal de respirație, kit „fără frontiere”. Teste: `tests/fff-r8.test.mjs`.
+### 12 October 2026 (v1.0.0)
+- 1.0.0 — 2026-10-12: the version and the date of the last update are shown in the app
 
-### 12 octombrie 2026 (v1.0.0)
-- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
+### 11 October 2026 (third entry)
+- Mix shareable by link, applied only on pressing a button; status messages for the presets (previously, saving without a name gave no response).
 
-### 11 octombrie 2026 (a treia intrare)
-- Mix partajabil prin link, cu aplicare doar la apăsarea unui buton; mesaje de stare la presetări (înainte, salvarea fără nume nu dădea niciun răspuns).
+### 11 October 2026
+- New: custom duration for the timer, "Stop all layers", the "Last combination" preset, keyboard shortcuts; CSP with a hash for the script (no `'unsafe-inline'` for scripts). Screenshot updated.
+- Added a strict CSP (no network, no external resources); check: axe 0 violations, no console errors, no horizontal overflow at 360 px.
+- The quality of the synthesised sound cannot be evaluated automatically; unchanged in this round.
 
-### 11 octombrie 2026
-- Nou: durată personalizată pentru cronometru, „Oprește toate straturile”, presetarea „Ultima combinație”, scurtături de tastatură; CSP cu hash pentru script (fără `'unsafe-inline'` la scripturi). Captura de ecran actualizată.
-- Adăugat CSP strict (fără rețea, fără resurse externe); verificare: axe 0 violări, fără erori în consolă, fără depășire orizontală la 360 px.
-- Calitatea sunetului sintetizat nu poate fi evaluată automat; neschimbată în această rundă.
+## License
 
-## Licență
+MIT for the code and structure of the app — see the `LICENSE` file. Any third-party libraries included in the file keep their own licences.
 
-MIT pentru codul și structura aplicației — vezi fișierul `LICENSE`. Eventualele biblioteci terțe incluse în fișier își păstrează licențele proprii.
+The app itself contains only the statement: "The file is yours. 100% local — no account, no telemetry, no server."
 
-Aplicația însăși conține doar mențiunea: „Fișierul e al tău. 100% local — fără cont, fără telemetrie, fără server.”
-
-## Autor
+## Author
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf
 
-## English summary
+## Summary
 
 ASMR fără frontiere is a single-file ASMR sound mixer: layered soundscapes (rain, ocean, fire, wind, crickets, white/pink/brown noise), touch triggers, interactive visual effects, binaural beats (Delta/Theta/Alpha/Beta) and a sleep timer, all synthesised live with the Web Audio API. It makes no network requests; only user-saved presets are kept in localStorage. UI is in Romanian. License: MIT.
 
-Audit: 2026-10-10 — verificat cod (fără cereri de rețea), accesibilitate (axe) și funcționare; adăugat avertisment.
+Audit: 2026-10-10 — code checked (no network requests), accessibility (axe) and operation; warning added.
