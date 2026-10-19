@@ -91,8 +91,8 @@ Aplicația însăși conține doar mențiunea: „Fișierul e al tău. 100% loca
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-ASMR fără frontiere is a single-file ASMR sound mixer: layered soundscapes (rain, ocean, fire, wind, crickets, white/pink/brown noise), touch triggers, interactive visual effects, binaural beats (Delta/Theta/Alpha/Beta) and a sleep timer, all synthesised live with the Web Audio API. It makes no network requests; only user-saved presets are kept in localStorage. UI is in Romanian. License: MIT.
+ASMR fără frontiere este un mixer de sunete ASMR într-un singur fișier: peisaje sonore stratificate (ploaie, ocean, foc, vânt, greieri, zgomot alb/roz/brun), declanșatoare tactile, efecte vizuale interactive, bătăi binaurale (Delta/Theta/Alpha/Beta) și temporizator de somn, toate sintetizate în timp real cu Web Audio API. Nu face cereri de rețea; în localStorage se păstrează doar presetările salvate de utilizator. Interfața este în română. Licență: MIT.
 
 Audit: 2026-10-10 — verificat cod (fără cereri de rețea), accesibilitate (axe) și funcționare; adăugat avertisment.
