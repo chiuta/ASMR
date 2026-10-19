@@ -15,8 +15,8 @@
     "asmr_ff_last",
     "asmr_ff_presets"
   ],
-  "sizeBytes": 248415,
-  "sha256": "54965c5e83d78291955393aa9811fad5bfdeea493f9ea3b0f86afaca94fd39a2",
+  "sizeBytes": 249051,
+  "sha256": "903d2e8bf292889facc9d672da39cff6119b6501344913c843b708b61dbcd962",
   "csp": {
     "present": true,
     "directives": {
@@ -53,7 +53,7 @@
     ]
   },
   "kit": {
-    "version": "1.1.0",
+    "version": "1.1.1",
     "modules": [
       "core",
       "label",
