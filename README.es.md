@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.1.1 · **Última actualización:** 2026-10-18
+**Versión:** 1.2.0 · **Última actualización:** 2026-10-19
+
+Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Paisajes sonoros, desencadenantes táctiles y pulsos binaurales, sintetizados en local en el navegador, en un único archivo HTML.
 

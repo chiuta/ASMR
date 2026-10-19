@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.1.1 · **Ultima actualizare:** 2026-10-18
+**Versiune:** 1.2.0 · **Ultima actualizare:** 2026-10-19
+
+Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local în browser, într-un singur fișier HTML.
 
