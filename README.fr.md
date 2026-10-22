@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.2 · **Dernière mise à jour :** 2026-10-22
+**Version :** 1.2.3 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -67,6 +67,7 @@ Téléchargez `index.html` et ouvrez-le dans un navigateur ; il n'a pas besoin d
 
 ## Historique / Changelog
 
+- 1.2.3 — 2026-10-22 : fff-kit 1.1.4 : cibles tactiles et taille de texte minimale
 - 1.2.2 — 2026-10-22 : fff-kit 1.1.2 : PBKDF2 600 000 itérations, protection anti-clickjacking
 - 1.2.1 — 2026-10-22: finitions d’accessibilité et mobile : le champ caché pour l’image QR est étiqueté, les touches de raccourci et les cibles tactiles des curseurs respectent la taille minimale (texte ≥ 12 px, cibles ≥ 24 px).
 - 1.1.1 — 2026-10-18 : l'import d'un paquet `.fff.json` fusionne les préréglages importés avec les vôtres (même nom = remplacé par celui du fichier ; plafond de 50) au lieu de les effacer ; tests.

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.2.2 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 1.2.3 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -68,6 +68,7 @@ Scarica `index.html` e aprilo nel browser; non ha bisogno di internet. Serve un 
 
 ## Cronologia / Changelog
 
+- 1.2.3 — 2026-10-22: fff-kit 1.1.4: target touch e dimensione minima del testo
 - 1.2.1 — 2026-10-22: rifiniture di accessibilità e mobile: il campo nascosto per l’immagine QR ha un’etichetta, i tasti di scelta rapida e le aree tattili dei cursori rispettano la dimensione minima (testo ≥ 12 px, aree ≥ 24 px).
 - 1.1.1 — 2026-10-18: l'importazione di un pacchetto `.fff.json` unisce i preset importati a quelli propri (stesso nome = sostituito con quello del file; tetto di 50) invece di cancellarli; test.
 - 1.1.0 — 2026-10-14: registrazione WAV, QR per il mix, guida vocale del respiro, kit «senza frontiere». Test: `tests/fff-r8.test.mjs`.

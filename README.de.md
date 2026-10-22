@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.2 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 1.2.3 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -67,6 +67,7 @@ Lade `index.html` herunter und öffne sie im Browser; sie braucht kein Internet.
 
 ## Verlauf / Changelog
 
+- 1.2.3 — 2026-10-22: fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße
 - 1.2.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 mit 600.000 Iterationen, Schutz vor Clickjacking
 - 1.2.1 — 2026-10-22: Barrierefreiheit und Mobilgeräte: das versteckte Feld für das QR-Bild ist beschriftet, Tastenkürzel und Touch-Ziele der Schieberegler erfüllen die Mindestgröße (Text ≥ 12 px, Ziele ≥ 24 px).
 - 1.1.1 — 2026-10-18: Der Import eines `.fff.json`-Pakets führt die importierten Voreinstellungen mit den eigenen zusammen (gleicher Name = durch den aus der Datei ersetzt; Obergrenze 50), statt sie zu löschen; Tests.
