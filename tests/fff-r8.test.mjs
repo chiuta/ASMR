@@ -1,4 +1,4 @@
-// Teste R8 pentru ASMR fără frontiere 1.2.1: înregistrare WAV, QR pentru mix, ghid vocal.
+// Teste R8 pentru ASMR fără frontiere 1.2.2: înregistrare WAV, QR pentru mix, ghid vocal.
 // Rulare: node tests/fff-r8.test.mjs   (Playwright din /opt/node-tools, rețea blocată)
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -42,7 +42,7 @@ console.log('Pornire și versiune');
   const {ctx, p, errs, net} = await open(1280, 800);
   t('0 pageerror/CSP', errs.length === 0, errs.join('|'));
   t('0 cereri de rețea', net() === 0);
-  t('versiune 1.2.1', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.2.1' && /v 1\.2\.1 · 2026-10-22/.test(document.getElementById('app-version').textContent)));
+  t('versiune 1.2.2', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.2.2' && /v 1\.2\.2 · 2026-10-22/.test(document.getElementById('app-version').textContent)));
   t('kit prezent (core,label,bundle,qr,tts)', await p.evaluate(() => !!(window.FFF && FFF.label && FFF.bundle && FFF.qr && FFF.tts)));
   t('panou R8 vizibil', await p.locator('#r8Panel').isVisible());
   await ctx.close();

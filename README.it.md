@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.2.1 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 1.2.2 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -33,6 +33,7 @@ Un mixer di suoni per il relax, scritto in JavaScript semplice. Il suono non vie
 
 ## Novità (v1.1.0)
 
+- 1.2.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600.000 iterazioni, protezione anti-clickjacking
 - **Registrazione WAV del mix corrente**: cattura in tempo reale l'uscita dell'app (gli strati attivi, i battiti binaurali e gli stimoli toccati nel frattempo), stereo, 16 bit, per la durata scelta (15 s – 5 min) o fino a «Ferma e salva»; il file `asmr-mix-*.wav` viene scaricato alla fine. Senza suono attivo rifiuta con un messaggio. Limite: la registrazione dura quanto il suono (tempo reale, non rendering accelerato) e usa `ScriptProcessorNode`; se il browser non lo ha, compare un messaggio.
 - **QR per il mix**: genera un codice QR con i livelli degli strati (e i battiti binaurali) e può rileggerlo da un'immagine o da un testo incollato; il QR senza collegamento web contiene solo `#mix=…`. Un'immagine senza QR non modifica nulla.
 - **Guida vocale del respiro** (`FFF.tts`): pronuncia «Inspira» (4 s) ed «Espira» (6 s) a ritmo lento, con testo visibile e `aria-pressed`; senza sintesi vocale compare un messaggio. Non è un'indicazione medica.
