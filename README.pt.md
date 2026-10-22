@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.0 · **Última atualização:** 2026-10-19
+**Versão:** 1.2.1 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -67,6 +67,7 @@ Descarregue `index.html` e abra-o no navegador; não precisa de internet. É nec
 
 ## Histórico / Changelog
 
+- 1.2.1 — 2026-10-22: melhorias de acessibilidade e telemóvel: o campo oculto da imagem QR tem etiqueta, as teclas de atalho e as áreas táteis dos controlos deslizantes cumprem o tamanho mínimo (texto ≥ 12 px, áreas ≥ 24 px).
 - 1.1.1 — 2026-10-18: a importação de um pacote `.fff.json` junta as predefinições importadas às próprias (mesmo nome = substituído pelo do ficheiro; limite de 50) em vez de as apagar; testes.
 - 1.1.0 — 2026-10-14: gravação WAV, QR para a mistura, guia de voz para a respiração, kit «sem fronteiras». Testes: `tests/fff-r8.test.mjs`.
 

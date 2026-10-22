@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.0 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 1.2.1 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -67,6 +67,7 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Es
 
 ## Istoric / Changelog
 
+- 1.2.1 — 2026-10-22: finisaje de accesibilitate și mobil: câmpul ascuns pentru imaginea QR are etichetă, tastele de scurtătură și ținta tactilă a glisoarelor respectă dimensiunea minimă (text ≥12 px, ținte ≥24 px).
 - 1.1.1 — 2026-10-18: importul unui pachet `.fff.json` îmbină presetările importate cu cele proprii (același nume = înlocuit cu cel din fișier; plafon de 50) în loc să le șteargă; teste.
 - 1.1.0 — 2026-10-14: înregistrare WAV, QR pentru mix, ghid vocal de respirație, kit „fără frontiere”. Teste: `tests/fff-r8.test.mjs`.
 

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.0 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.2.1 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -67,6 +67,7 @@ Töltsd le az `index.html` fájlt, és nyisd meg böngészőben; nincs szükség
 
 ## Előzmények / Changelog
 
+- 1.2.1 — 2026-10-22: kisegítő lehetőségek és mobil finomítások: a QR-kép rejtett mezője fel van címkézve, a gyorsbillentyűk és a csúszkák érintési felületei elérik a minimális méretet (szöveg ≥ 12 px, felület ≥ 24 px).
 - 1.1.1 — 2026-10-18: egy `.fff.json` csomag importálása összefésüli az importált előbeállításokat a sajátokkal (azonos név = a fájlból származóra cserélve; legfeljebb 50) ahelyett, hogy törölné őket; tesztek.
 - 1.1.0 — 2026-10-14: WAV-felvétel, QR a keverékhez, hangos légzésvezető, „határok nélküli” kit. Tesztek: `tests/fff-r8.test.mjs`.
 
