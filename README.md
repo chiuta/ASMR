@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.4 · **Last updated:** 2026-10-23
+**Version:** 1.2.5 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -72,6 +72,10 @@ Download `index.html` and open it in a browser; it does not need internet. A bro
 - 1.2.1 — 2026-10-22: accessibility and mobile polish: the hidden QR file input is labelled, shortcut keys and slider touch targets meet the minimum size (≥12 px text, ≥24 px targets).
 - 1.1.1 — 2026-10-18: importing a `.fff.json` bundle merges the imported presets with your own (same name = replaced with the one from the file; cap of 50) instead of deleting them; tests.
 - 1.1.0 — 2026-10-14: WAV recording, QR for the mix, breathing voice guide, "without borders" kit. Tests: `tests/fff-r8.test.mjs`.
+
+### 23 October 2026 (v1.2.5)
+- Fix: a mix link with `b=toString` / `b=constructor` or a layer named `constructor` passed validation (keys inherited from `Object`) and threw an `AudioParam` error when applied; only own keys are accepted now
+- New: `tests/r10-audit.test.mjs` (regression for hostile `#mix=` links)
 
 ### 12 October 2026 (v1.0.0)
 - 1.0.0 — 2026-10-12: the version and the date of the last update are shown in the app
