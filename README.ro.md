@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.5 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -25,6 +25,8 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 - **Cronometru de adormire**: 15, 30, 45, 60 sau 90 min, sau „Oprit”; afișaj al timpului rămas.
 - **Presetări**: șase presetări încorporate (Ploaie de noapte, Furtună pe ocean, Foc de tabără, Concentrare, Adormire, Liniște) și presetări proprii, salvate cu nume (maximum 24 de caractere).
 - **Mix partajabil prin link**: „Copiază linkul mixului” generează o adresă cu `#mix=…` (straturile active cu volum și, dacă e pornită, banda binaurală). Cine deschide linkul vede butonul „Redă mixul din link”; sunetul nu pornește singur. Valorile din link sunt validate (doar straturi cunoscute, volum 1–100). Presetările afișează mesaje de stare (nume lipsă, salvat, link copiat).
+- **Scene sonore în timp (2.0.0)**: compui o scenă din 2–8 puncte (mixul curent la o poziție de 0–100 % din durata de 1–480 min); între puncte volumele straturilor se schimbă liniar (de exemplu ploaia crește, focul scade). Scena se salvează cu nume, se trimite prin link `#scene=…` sau cod QR și, la deschidere, nu pornește singură. Nu e dispozitiv medical.
+- Neimplementat încă: biblioteca de sunete proprii (încărcare de fișiere audio) și stingerea treptată cu durată reglabilă.
 - Buton **Pauză tot / Redă tot** și **Volum general**; buton **Oprește toate straturile** (aduce straturile la 0 și oprește bătăile binaurale).
 - Cronometru cu **durată personalizată** (1–480 min, cu mesaj de eroare la valoare invalidă); cronometrul are rol `timer` pentru cititoarele de ecran.
 - Presetarea **Ultima combinație**: ultimul mix cu cel puțin un strat sau bătăi active se păstrează automat și se poate relua dintr-un clic.
