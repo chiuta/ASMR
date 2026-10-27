@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.2.0 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** stabil · **Offline:** complet
 
@@ -20,7 +20,7 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 
 ## Funcții
 
-- **Peisaje sonore** (straturi combinabile, fiecare cu propriul volum): Ploaie, Valuri de ocean, Foc de tabără, Vânt, Noapte cu greieri, Zgomot alb, Zgomot roz, Zgomot maro.
+- **Peisaje sonore** (straturi combinabile, fiecare cu propriul volum): Ploaie, Valuri de ocean, Foc de tabără, Vânt, Noapte cu greieri, Zgomot alb, Zgomot roz, Zgomot maro, Pârâu, Ventilator, Tunet îndepărtat.
 - **Declanșatoare**: Ciocănit lemn, Ciocănit sticlă, Ciocănit masă, Picătură de apă, Foaie întoarsă, Clic tastatură, Foșnet hârtie și Periere (textura continuă cât timp ții apăsat).
 - **Efecte vizuale ASMR**: Nisip kinetic, Baloane cu folie, Cerneală în apă, Gheață care crapă, Model simetric, Valuri de lumină; buton **Curăță**.
 - **Bătăi binaurale**: benzile Delta, Theta, Alpha și Beta, cu volum separat și buton **Pornește**. Aplicația recomandă căști stereo.
@@ -28,7 +28,7 @@ Un mixer de sunete pentru relaxare, scris în JavaScript simplu. Sunetul nu este
 - **Presetări**: șase presetări încorporate (Ploaie de noapte, Furtună pe ocean, Foc de tabără, Concentrare, Adormire, Liniște) și presetări proprii, salvate cu nume (maximum 24 de caractere).
 - **Mix partajabil prin link**: „Copiază linkul mixului” generează o adresă cu `#mix=…` (straturile active cu volum și, dacă e pornită, banda binaurală). Cine deschide linkul vede butonul „Redă mixul din link”; sunetul nu pornește singur. Valorile din link sunt validate (doar straturi cunoscute, volum 1–100). Presetările afișează mesaje de stare (nume lipsă, salvat, link copiat).
 - **Scene sonore în timp (2.0.0)**: compui o scenă din 2–8 puncte (mixul curent la o poziție de 0–100 % din durata de 1–480 min); între puncte volumele straturilor se schimbă liniar (de exemplu ploaia crește, focul scade). Scena se salvează cu nume, se trimite prin link `#scene=…` sau cod QR și, la deschidere, nu pornește singură. Nu e dispozitiv medical.
-- Neimplementat încă: biblioteca de sunete proprii (încărcare de fișiere audio) și stingerea treptată cu durată reglabilă.
+- „Sunetul meu” (un fișier audio local, doar în sesiune) și stingerea treptată cu durată reglabilă sunt implementate. Neimplementat: o bibliotecă persistentă de sunete proprii (fișierele nu se salvează și nu călătoresc în linkuri).
 - Buton **Pauză tot / Redă tot** și **Volum general**; buton **Oprește toate straturile** (aduce straturile la 0 și oprește bătăile binaurale).
 - Cronometru cu **durată personalizată** (1–480 min, cu mesaj de eroare la valoare invalidă); cronometrul are rol `timer` pentru cititoarele de ecran.
 - Presetarea **Ultima combinație**: ultimul mix cu cel puțin un strat sau bătăi active se păstrează automat și se poate relua dintr-un clic.
@@ -69,6 +69,10 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
 
+## Sunetul meu: fișier audio local (2.2.0)
+
+„Sunetul meu” încarcă un fișier audio de pe dispozitiv (maximum 25 MB și 5 minute) și îl redă în buclă, cu volum propriu, printr-un limitator (prag −12 dB, raport 20). Urmează volumul general, pauza și estomparea temporizatorului și intră în înregistrarea WAV a ieșirii. Rămâne doar în sesiunea curentă: nu se salvează nimic și **nu** face parte din presetări, linkul `#mix=`, codul QR sau scene (un fișier nu poate călători într-un link). „Oprește toate straturile” îl aduce la 0. Textele noi există în RO și EN; celelalte limbi folosesc engleza (traducere automată în așteptare).
+
 ## Sunete noi și estompare configurabilă (2.1.0)
 
 Trei straturi noi, sintetizate local: **Pârâu**, **Ventilator** și **Tunet îndepărtat** (bubuituri rare, doar cât stratul e pornit). **Estompare (fade-out) configurabilă** la sfârșitul temporizatorului de adormire: 10 s, 30 s (implicit), 2 min sau 5 min; alegerea se păstrează în `localStorage` (`asmr_ff_fade`). Temporizatorul exista deja (15–90 min sau durată proprie 1–480 min); dacă estomparea e mai lungă decât timpul rămas, ea începe imediat. Straturile noi intră automat în presetări, linkul `#mix=`, codul QR și scene.
@@ -78,6 +82,7 @@ Trei straturi noi, sintetizate local: **Pârâu**, **Ventilator** și **Tunet î
 Aceste aplicații se suprapun ca scop (sunet calm pentru relaxare și somn), dar funcționează diferit și **nu au fost fuzionate**. **ASMR** este mixer de peisaje sonore și declanșatoare tactile (ASMR), cu scene în timp și temporizator de adormire. Vezi și: [CalmWaves](https://chiuta.github.io/CalmWaves/) — compoziție ambientală generativă (intenție, paletă tonală, densitate) cu cod de variantă, voce sintetizată și vizualizări; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — compozitor de muzică originală după gen și seed (cu export WAV/FLAC/MIDI și coduri partajabile), cu straturi opționale de relaxare; [Aurora](https://chiuta.github.io/Aurora/) — tonuri ale chakrelor, bătăi binaurale și ghid de respirație pentru meditație. Alege după nevoie: peisaje și declanșatoare = ASMR; piesă ambientală generată = CalmWaves; muzică după gen/seed = BorderlessMelodies; meditație pe chakre = Aurora.
 
 ## Istoric / Changelog
+- **2.2.0 — 2026-10-27:** „Sunetul meu” (fișier audio local, buclă, limitator, doar în sesiune); listele de straturi din README completate (Pârâu, Ventilator, Tunet îndepărtat); CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** straturi noi (Pârâu, Ventilator, Tunet îndepărtat); durata estompării (fade-out) la temporizator configurabilă (10 s / 30 s / 2 min / 5 min); notă „vezi și” (CalmWaves, BorderlessMelodies, Aurora), fără fuziune; linii Stare/Offline; CHANGELOG.md (anterior: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: ținte tactile și text minim

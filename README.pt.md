@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 2.1.0 · **Última atualização:** 2026-10-27
+**Versão:** 2.2.0 · **Última atualização:** 2026-10-27
 
 **Estado:** estável · **Offline:** completo
 
@@ -20,7 +20,7 @@ Um misturador de sons para relaxamento, escrito em JavaScript simples. O som nã
 
 ## Funcionalidades
 
-- **Paisagens sonoras** (camadas combináveis, cada uma com o seu próprio volume): Chuva, Ondas do oceano, Fogueira, Vento, Noite com grilos, Ruído branco, Ruído rosa, Ruído castanho.
+- **Paisagens sonoras** (camadas combináveis, cada uma com o seu próprio volume): Chuva, Ondas do oceano, Fogueira, Vento, Noite com grilos, Ruído branco, Ruído rosa, Ruído castanho, Riacho, Ventoinha, Trovão distante.
 - **Estímulos**: Pancadinhas na madeira, Pancadinhas no vidro, Pancadinhas na mesa, Gota de água, Página virada, Clique de teclado, Restolhar de papel e Escovagem (textura contínua enquanto mantém premido).
 - **Efeitos visuais ASMR**: Areia cinética, Plástico de bolhas, Tinta na água, Gelo a rachar, Padrão simétrico, Ondas de luz; botão **Limpar**.
 - **Batimentos binaurais**: as bandas Delta, Theta, Alpha e Beta, com volume separado e botão **Iniciar**. A aplicação recomenda auscultadores estéreo.
@@ -67,6 +67,10 @@ Conteúdo informativo e de relaxamento; não substitui o aconselhamento médico.
 
 Descarregue `index.html` e abra-o no navegador; não precisa de internet. É necessário um navegador com suporte para a Web Audio API e JavaScript ativado.
 
+## O meu som: um ficheiro de áudio local (2.2.0)
+
+«O meu som» carrega um ficheiro de áudio do dispositivo (máximo 25 MB e 5 minutos) e reproduz-o em ciclo, com volume próprio, através de um limitador (limiar −12 dB, razão 20). Segue o volume geral, a pausa e o desvanecimento do temporizador. Fica apenas na sessão: nada é guardado e **não** faz parte de predefinições, ligação `#mix=`, código QR nem cenas. Textos novos em RO/EN, inglês nas outras línguas.
+
 ## Sons novos e desvanecimento final configurável (2.1.0)
 
 Três camadas novas, sintetizadas localmente: **Riacho**, **Ventoinha** e **Trovão distante** (estrondos raros, só enquanto a camada está ativa). **Desvanecimento final configurável** no fim do temporizador para adormecer: 10 s, 30 s (predefinido), 2 min ou 5 min; a escolha fica em `localStorage` (`asmr_ff_fade`). O temporizador já existia (15–90 min ou duração livre 1–480 min); se o desvanecimento for mais longo do que o tempo restante, começa de imediato. As camadas novas entram automaticamente nas predefinições, na ligação `#mix=`, no código QR e nas cenas.
@@ -76,6 +80,7 @@ Três camadas novas, sintetizadas localmente: **Riacho**, **Ventoinha** e **Trov
 Estas aplicações sobrepõem-se no objetivo (som calmante para relaxar e dormir), mas funcionam de modo diferente e **não foram fundidas**. **ASMR** é um misturador de paisagens sonoras e gatilhos táteis (ASMR), com cenas temporais e temporizador para adormecer. Ver também: [CalmWaves](https://chiuta.github.io/CalmWaves/) — uma composição ambiente generativa (intenção, paleta tonal, densidade) com código de variante, voz sintetizada e visualizações; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — um compositor de música original por género e semente (exportação WAV/FLAC/MIDI, códigos partilháveis), com camadas de relaxamento opcionais; [Aurora](https://chiuta.github.io/Aurora/) — tons dos chakras, batimentos binaurais e guia de respiração para meditação. Escolha conforme a necessidade: paisagens e gatilhos = ASMR; peça ambiente gerada = CalmWaves; música por género/semente = BorderlessMelodies; meditação de chakras = Aurora.
 
 ## Histórico / Changelog
+- **2.2.0 — 2026-10-27:** «O meu som» (ficheiro de áudio local, ciclo, limitador, só sessão); listas de camadas do README completadas; CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** camadas novas (Riacho, Ventoinha, Trovão distante); duração do desvanecimento do temporizador configurável (10 s / 30 s / 2 min / 5 min); nota «ver também» (CalmWaves, BorderlessMelodies, Aurora), sem fusão; linhas Estado/Offline; CHANGELOG.md (anterior: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: alvos de toque e tamanho mínimo do texto

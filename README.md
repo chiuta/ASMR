@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.1.0 · **Last updated:** 2026-10-27
+**Version:** 2.2.0 · **Last updated:** 2026-10-27
 
 **Status:** stable · **Offline:** complete
 
@@ -20,7 +20,7 @@ A sound mixer for relaxation, written in plain JavaScript. The sound is not play
 
 ## Features
 
-- **Soundscapes** (combinable layers, each with its own volume): Rain, Ocean waves, Campfire, Wind, Night with crickets, White noise, Pink noise, Brown noise.
+- **Soundscapes** (combinable layers, each with its own volume): Rain, Ocean waves, Campfire, Wind, Night with crickets, White noise, Pink noise, Brown noise, Stream, Fan, Distant thunder.
 - **Triggers**: Wood tapping, Glass tapping, Table tapping, Water drop, Page turn, Keyboard click, Paper rustle and Brushing (a continuous texture for as long as you hold it down).
 - **ASMR visual effects**: Kinetic sand, Bubble wrap, Ink in water, Cracking ice, Symmetric pattern, Light waves; **Clear** button.
 - **Binaural beats**: the Delta, Theta, Alpha and Beta bands, with a separate volume and a **Start** button. The app recommends stereo headphones.
@@ -67,6 +67,10 @@ Informational and relaxation content; it does not replace medical advice. The de
 
 Download `index.html` and open it in a browser; it does not need internet. A browser with Web Audio API support and JavaScript enabled is required.
 
+## My sound: a local audio file (2.2.0)
+
+"My sound" loads an audio file from your device (up to 25 MB and 5 minutes) and plays it in a loop with its own volume, through a limiter (threshold −12 dB, ratio 20). It follows the master volume, pause and the sleep timer's fade-out, and it is part of the WAV recording of the output. It stays only in the current session: nothing is saved, and it is **not** part of presets, the `#mix=` link, the QR code or scenes (a file cannot travel in a link). “Stop all layers” brings it to 0. New texts exist in RO and EN; other languages fall back to English (machine translation pending).
+
 ## New sounds and configurable fade-out (2.1.0)
 
 Three new layers, synthesised locally: **Stream**, **Fan** and **Distant thunder** (rare rumbles, only while the layer is on). **Configurable fade-out** at the end of the sleep timer: 10 s, 30 s (default), 2 min or 5 min; the choice is kept in `localStorage` (`asmr_ff_fade`). The timer already existed (15–90 min or a custom 1–480 min); if the fade is longer than the time left, it starts immediately. The new layers are automatically part of presets, the `#mix=` link, the QR code and scenes.
@@ -76,6 +80,7 @@ Three new layers, synthesised locally: **Stream**, **Fan** and **Distant thunder
 These apps overlap in purpose (calm sound for relaxation and sleep) but work differently and have **not been merged**. **ASMR** is a mixer of soundscapes and touch triggers (ASMR), with timed scenes and a sleep timer. See also: [CalmWaves](https://chiuta.github.io/CalmWaves/) — a generative ambient composition (intent, tonal palette, density) with a variant code, synthesised voice and visualisations; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — a composer of original music by genre and seed (with WAV/FLAC/MIDI export and shareable codes), with optional relaxation layers; [Aurora](https://chiuta.github.io/Aurora/) — chakra tones, binaural beats and a breathing guide for meditation. Pick by need: soundscapes and triggers = ASMR; a generated ambient piece = CalmWaves; music by genre/seed = BorderlessMelodies; chakra meditation = Aurora.
 
 ## History / Changelog
+- **2.2.0 — 2026-10-27:** “My sound” (local audio file, loop, limiter, session only); README layer lists completed (Stream, Fan, Distant thunder); CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** new layers (Stream, Fan, Distant thunder); configurable fade-out duration for the timer (10 s / 30 s / 2 min / 5 min); “see also” note (CalmWaves, BorderlessMelodies, Aurora), no merge; Status/Offline lines; CHANGELOG.md (previous: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: touch targets and minimum text size

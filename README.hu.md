@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.1.0 · **Utolsó frissítés:** 2026-10-27
+**Verzió:** 2.2.0 · **Utolsó frissítés:** 2026-10-27
 
 **Állapot:** stabil · **Offline:** teljes
 
@@ -20,7 +20,7 @@ Relaxációs hangkeverő, egyszerű JavaScriptben írva. A hang nem hangfájlokb
 
 ## Funkciók
 
-- **Hangtájképek** (kombinálható rétegek, mindegyik saját hangerővel): Eső, Óceánhullámok, Tábortűz, Szél, Éjszaka tücskökkel, Fehér zaj, Rózsaszín zaj, Barna zaj.
+- **Hangtájképek** (kombinálható rétegek, mindegyik saját hangerővel): Eső, Óceánhullámok, Tábortűz, Szél, Éjszaka tücskökkel, Fehér zaj, Rózsaszín zaj, Barna zaj, Patak, Ventilátor, Távoli mennydörgés.
 - **Kiváltók**: Fa kopogtatása, Üveg kopogtatása, Asztal kopogtatása, Vízcsepp, Lapozás, Billentyűkattanás, Papírzizegés és Kefélés (folyamatos textúra, amíg nyomva tartod).
 - **ASMR vizuális effektek**: Kinetikus homok, Buborékfólia, Tinta a vízben, Repedő jég, Szimmetrikus minta, Fényhullámok; **Törlés** gomb.
 - **Binaurális ütemek**: a Delta, Theta, Alpha és Beta sávok, külön hangerővel és **Indítás** gombbal. Az alkalmazás sztereó fejhallgatót ajánl.
@@ -67,6 +67,10 @@ Tájékoztató és relaxációs tartalom; nem helyettesíti az orvosi tanácsot.
 
 Töltsd le az `index.html` fájlt, és nyisd meg böngészőben; nincs szüksége internetre. Web Audio API-t támogató, bekapcsolt JavaScriptű böngésző szükséges.
 
+## Saját hangom: helyi hangfájl (2.2.0)
+
+A „Saját hangom” egy hangfájlt tölt be az eszközről (legfeljebb 25 MB és 5 perc), és hurokban játssza le saját hangerővel, limiteren keresztül (küszöb −12 dB, arány 20). Követi a fő hangerőt, a szünetet és az időzítő elhalkulását. Csak a munkamenetben marad meg: semmi sem mentődik, és **nem** része az előbeállításoknak, a `#mix=` hivatkozásnak, a QR-kódnak vagy a jeleneteknek. Az új szövegek RO/EN nyelvűek, másutt angol.
+
 ## Új hangok és beállítható elhalkulás (2.1.0)
 
 Három új, helyben szintetizált réteg: **Patak**, **Ventilátor** és **Távoli mennydörgés** (ritka morajlás, csak amíg a réteg be van kapcsolva). **Beállítható elhalkulás** az elalvás-időzítő végén: 10 mp, 30 mp (alapértelmezett), 2 perc vagy 5 perc; a választás a `localStorage`-ban marad (`asmr_ff_fade`). Az időzítő már megvolt (15–90 perc vagy egyéni 1–480 perc); ha az elhalkulás hosszabb a hátralévő időnél, azonnal elindul. Az új rétegek automatikusan részei az előbeállításoknak, a `#mix=` hivatkozásnak, a QR-kódnak és a jeleneteknek.
@@ -76,6 +80,7 @@ Három új, helyben szintetizált réteg: **Patak**, **Ventilátor** és **Távo
 Ezek az alkalmazások céljukban átfedik egymást (nyugtató hang pihenéshez és alváshoz), de másként működnek, és **nem vontuk össze őket**. A(z) **ASMR** hangtájak és érintéses triggerek keverője (ASMR), időzített jelenetekkel és elalvás-időzítővel. Lásd még: [CalmWaves](https://chiuta.github.io/CalmWaves/) — generatív ambient kompozíció (szándék, hangpaletta, sűrűség) variánskóddal, szintetizált hanggal és vizualizációkkal; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — eredeti zene szerzője műfaj és seed alapján (WAV/FLAC/MIDI export, megosztható kódok), opcionális relaxációs rétegekkel; [Aurora](https://chiuta.github.io/Aurora/) — csakrahangok, binaurális ütemek és légzésvezetés meditációhoz. Válassz igény szerint: hangtájak és triggerek = ASMR; generált ambient darab = CalmWaves; zene műfaj/seed szerint = BorderlessMelodies; csakra-meditáció = Aurora.
 
 ## Előzmények / Changelog
+- **2.2.0 — 2026-10-27:** „Saját hangom” (helyi hangfájl, hurok, limiter, csak munkamenet); a README réteglistái kiegészítve; CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** új rétegek (Patak, Ventilátor, Távoli mennydörgés); az időzítő elhalkulási ideje beállítható (10 mp / 30 mp / 2 perc / 5 perc); „lásd még” megjegyzés (CalmWaves, BorderlessMelodies, Aurora), összevonás nélkül; Állapot/Offline sorok; CHANGELOG.md (előző: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: érintési célpontok és minimális szövegméret

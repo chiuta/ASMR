@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.1.0 · **Ultimo aggiornamento:** 2026-10-27
+**Versione:** 2.2.0 · **Ultimo aggiornamento:** 2026-10-27
 
 **Stato:** stabile · **Offline:** completo
 
@@ -20,7 +20,7 @@ Un mixer di suoni per il relax, scritto in JavaScript semplice. Il suono non vie
 
 ## Funzioni
 
-- **Paesaggi sonori** (strati combinabili, ciascuno con il proprio volume): Pioggia, Onde dell'oceano, Falò, Vento, Notte con grilli, Rumore bianco, Rumore rosa, Rumore marrone.
+- **Paesaggi sonori** (strati combinabili, ciascuno con il proprio volume): Pioggia, Onde dell'oceano, Falò, Vento, Notte con grilli, Rumore bianco, Rumore rosa, Rumore marrone, Ruscello, Ventilatore, Tuono lontano.
 - **Stimoli**: Picchiettio sul legno, Picchiettio sul vetro, Picchiettio sul tavolo, Goccia d'acqua, Pagina voltata, Clic di tastiera, Fruscio di carta e Spazzolatura (texture continua finché tieni premuto).
 - **Effetti visivi ASMR**: Sabbia cinetica, Pluriball, Inchiostro nell'acqua, Ghiaccio che si crepa, Motivo simmetrico, Onde di luce; pulsante **Pulisci**.
 - **Battiti binaurali**: le bande Delta, Theta, Alpha e Beta, con volume separato e pulsante **Avvia**. L'app consiglia cuffie stereo.
@@ -68,6 +68,10 @@ Contenuto informativo e di relax; non sostituisce la consulenza medica. Le descr
 
 Scarica `index.html` e aprilo nel browser; non ha bisogno di internet. Serve un browser con supporto alla Web Audio API e JavaScript attivo.
 
+## Il mio suono: un file audio locale (2.2.0)
+
+«Il mio suono» carica un file audio dal dispositivo (massimo 25 MB e 5 minuti) e lo riproduce in loop, con volume proprio, tramite un limitatore (soglia −12 dB, rapporto 20). Segue il volume generale, la pausa e la dissolvenza del timer. Resta solo nella sessione: nulla viene salvato e **non** fa parte di preset, link `#mix=`, codice QR o scene. Testi nuovi in RO/EN, inglese per le altre lingue.
+
 ## Nuovi suoni e dissolvenza finale configurabile (2.1.0)
 
 Tre nuovi strati, sintetizzati localmente: **Ruscello**, **Ventilatore** e **Tuono lontano** (rombi rari, solo mentre lo strato è attivo). **Dissolvenza finale configurabile** al termine del timer di spegnimento: 10 s, 30 s (predefinito), 2 min o 5 min; la scelta è salvata in `localStorage` (`asmr_ff_fade`). Il timer esisteva già (15–90 min o durata libera 1–480 min); se la dissolvenza è più lunga del tempo rimasto, parte subito. I nuovi strati entrano automaticamente nei preset, nel link `#mix=`, nel codice QR e nelle scene.
@@ -77,6 +81,7 @@ Tre nuovi strati, sintetizzati localmente: **Ruscello**, **Ventilatore** e **Tuo
 Queste app si sovrappongono per scopo (suono calmo per relax e sonno) ma funzionano in modo diverso e **non sono state unite**. **ASMR** è un mixer di paesaggi sonori e trigger tattili (ASMR), con scene temporali e timer di spegnimento. Vedi anche: [CalmWaves](https://chiuta.github.io/CalmWaves/) — una composizione ambient generativa (intenzione, tavolozza tonale, densità) con codice di variante, voce sintetizzata e visualizzazioni; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — un compositore di musica originale per genere e seed (esportazione WAV/FLAC/MIDI, codici condivisibili), con strati di rilassamento opzionali; [Aurora](https://chiuta.github.io/Aurora/) — toni dei chakra, battiti binaurali e guida al respiro per la meditazione. Scegli in base all’esigenza: paesaggi e trigger = ASMR; brano ambient generato = CalmWaves; musica per genere/seed = BorderlessMelodies; meditazione sui chakra = Aurora.
 
 ## Cronologia / Changelog
+- **2.2.0 — 2026-10-27:** «Il mio suono» (file audio locale, loop, limitatore, solo sessione); elenchi degli strati nel README completati; CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** nuovi strati (Ruscello, Ventilatore, Tuono lontano); durata della dissolvenza del timer configurabile (10 s / 30 s / 2 min / 5 min); nota «vedi anche» (CalmWaves, BorderlessMelodies, Aurora), senza fusione; righe Stato/Offline; CHANGELOG.md (precedente: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: target touch e dimensione minima del testo
