@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.0.0 · **Ultimo aggiornamento:** 2026-10-26
+**Versione:** 2.1.0 · **Ultimo aggiornamento:** 2026-10-27
+
+**Stato:** stabile · **Offline:** completo
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -66,7 +68,16 @@ Contenuto informativo e di relax; non sostituisce la consulenza medica. Le descr
 
 Scarica `index.html` e aprilo nel browser; non ha bisogno di internet. Serve un browser con supporto alla Web Audio API e JavaScript attivo.
 
+## Nuovi suoni e dissolvenza finale configurabile (2.1.0)
+
+Tre nuovi strati, sintetizzati localmente: **Ruscello**, **Ventilatore** e **Tuono lontano** (rombi rari, solo mentre lo strato è attivo). **Dissolvenza finale configurabile** al termine del timer di spegnimento: 10 s, 30 s (predefinito), 2 min o 5 min; la scelta è salvata in `localStorage` (`asmr_ff_fade`). Il timer esisteva già (15–90 min o durata libera 1–480 min); se la dissolvenza è più lunga del tempo rimasto, parte subito. I nuovi strati entrano automaticamente nei preset, nel link `#mix=`, nel codice QR e nelle scene.
+
+## Vedi anche: app affini (non unite)
+
+Queste app si sovrappongono per scopo (suono calmo per relax e sonno) ma funzionano in modo diverso e **non sono state unite**. **ASMR** è un mixer di paesaggi sonori e trigger tattili (ASMR), con scene temporali e timer di spegnimento. Vedi anche: [CalmWaves](https://chiuta.github.io/CalmWaves/) — una composizione ambient generativa (intenzione, tavolozza tonale, densità) con codice di variante, voce sintetizzata e visualizzazioni; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — un compositore di musica originale per genere e seed (esportazione WAV/FLAC/MIDI, codici condivisibili), con strati di rilassamento opzionali; [Aurora](https://chiuta.github.io/Aurora/) — toni dei chakra, battiti binaurali e guida al respiro per la meditazione. Scegli in base all’esigenza: paesaggi e trigger = ASMR; brano ambient generato = CalmWaves; musica per genere/seed = BorderlessMelodies; meditazione sui chakra = Aurora.
+
 ## Cronologia / Changelog
+- **2.1.0 — 2026-10-27:** nuovi strati (Ruscello, Ventilatore, Tuono lontano); durata della dissolvenza del timer configurabile (10 s / 30 s / 2 min / 5 min); nota «vedi anche» (CalmWaves, BorderlessMelodies, Aurora), senza fusione; righe Stato/Offline; CHANGELOG.md (precedente: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: target touch e dimensione minima del testo
 - 1.2.1 — 2026-10-22: rifiniture di accessibilità e mobile: il campo nascosto per l’immagine QR ha un’etichetta, i tasti di scelta rapida e le aree tattili dei cursori rispettano la dimensione minima (testo ≥ 12 px, aree ≥ 24 px).

@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 2.0.0 · **Última atualização:** 2026-10-26
+**Versão:** 2.1.0 · **Última atualização:** 2026-10-27
+
+**Estado:** estável · **Offline:** completo
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -65,7 +67,16 @@ Conteúdo informativo e de relaxamento; não substitui o aconselhamento médico.
 
 Descarregue `index.html` e abra-o no navegador; não precisa de internet. É necessário um navegador com suporte para a Web Audio API e JavaScript ativado.
 
+## Sons novos e desvanecimento final configurável (2.1.0)
+
+Três camadas novas, sintetizadas localmente: **Riacho**, **Ventoinha** e **Trovão distante** (estrondos raros, só enquanto a camada está ativa). **Desvanecimento final configurável** no fim do temporizador para adormecer: 10 s, 30 s (predefinido), 2 min ou 5 min; a escolha fica em `localStorage` (`asmr_ff_fade`). O temporizador já existia (15–90 min ou duração livre 1–480 min); se o desvanecimento for mais longo do que o tempo restante, começa de imediato. As camadas novas entram automaticamente nas predefinições, na ligação `#mix=`, no código QR e nas cenas.
+
+## Ver também: aplicações afins (não fundidas)
+
+Estas aplicações sobrepõem-se no objetivo (som calmante para relaxar e dormir), mas funcionam de modo diferente e **não foram fundidas**. **ASMR** é um misturador de paisagens sonoras e gatilhos táteis (ASMR), com cenas temporais e temporizador para adormecer. Ver também: [CalmWaves](https://chiuta.github.io/CalmWaves/) — uma composição ambiente generativa (intenção, paleta tonal, densidade) com código de variante, voz sintetizada e visualizações; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — um compositor de música original por género e semente (exportação WAV/FLAC/MIDI, códigos partilháveis), com camadas de relaxamento opcionais; [Aurora](https://chiuta.github.io/Aurora/) — tons dos chakras, batimentos binaurais e guia de respiração para meditação. Escolha conforme a necessidade: paisagens e gatilhos = ASMR; peça ambiente gerada = CalmWaves; música por género/semente = BorderlessMelodies; meditação de chakras = Aurora.
+
 ## Histórico / Changelog
+- **2.1.0 — 2026-10-27:** camadas novas (Riacho, Ventoinha, Trovão distante); duração do desvanecimento do temporizador configurável (10 s / 30 s / 2 min / 5 min); nota «ver também» (CalmWaves, BorderlessMelodies, Aurora), sem fusão; linhas Estado/Offline; CHANGELOG.md (anterior: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: alvos de toque e tamanho mínimo do texto
 - 1.2.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600 000 iterações, proteção anti-clickjacking

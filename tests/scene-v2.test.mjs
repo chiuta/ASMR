@@ -1,4 +1,4 @@
-// Teste v2.0.0 pentru ASMR fără frontiere: scene sonore cu automații în timp (puncte, interpolare, link/QR, salvare).
+// Teste v2.1.0 pentru ASMR fără frontiere: scene sonore cu automații în timp (puncte, interpolare, link/QR, salvare).
 // Rulare: node tests/scene-v2.test.mjs   (Playwright din /opt/node-tools, rețea blocată). Testează logica, nu sunetul.
 import {createRequire} from 'module';
 import path from 'path';
