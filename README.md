@@ -69,7 +69,7 @@ Download `index.html` and open it in a browser; it does not need internet. A bro
 
 ## My sound: a local audio file (2.2.0)
 
-"My sound" loads an audio file from your device (up to 25 MB and 5 minutes) and plays it in a loop with its own volume, through a limiter (threshold −12 dB, ratio 20). It follows the master volume, pause and the sleep timer's fade-out, and it is part of the WAV recording of the output. It stays only in the current session: nothing is saved, and it is **not** part of presets, the `#mix=` link, the QR code or scenes (a file cannot travel in a link). “Stop all layers” brings it to 0. New texts exist in RO and EN; other languages fall back to English (machine translation pending).
+"My sound" loads an audio file from your device (up to 25 MB and 5 minutes) and plays it in a loop with its own volume, through a limiter (threshold −12 dB, ratio 20). It follows the master volume, pause and the sleep timer's fade-out, and it is part of the WAV recording of the output. It stays only in the current session: nothing is saved, and it is **not** part of presets, the `#mix=` link, the QR code or scenes (a file cannot travel in a link). “Stop all layers” brings it to 0. New texts were written in RO and EN; the FR/IT/ES/PT/DE/HU translations are machine translations, not validated by native speakers.
 
 ## New sounds and configurable fade-out (2.1.0)
 

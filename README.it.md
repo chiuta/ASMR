@@ -70,7 +70,7 @@ Scarica `index.html` e aprilo nel browser; non ha bisogno di internet. Serve un 
 
 ## Il mio suono: un file audio locale (2.2.0)
 
-«Il mio suono» carica un file audio dal dispositivo (massimo 25 MB e 5 minuti) e lo riproduce in loop, con volume proprio, tramite un limitatore (soglia −12 dB, rapporto 20). Segue il volume generale, la pausa e la dissolvenza del timer. Resta solo nella sessione: nulla viene salvato e **non** fa parte di preset, link `#mix=`, codice QR o scene. Testi nuovi in RO/EN, inglese per le altre lingue.
+«Il mio suono» carica un file audio dal dispositivo (massimo 25 MB e 5 minuti) e lo riproduce in loop, con volume proprio, tramite un limitatore (soglia −12 dB, rapporto 20). Segue il volume generale, la pausa e la dissolvenza del timer. Resta solo nella sessione: nulla viene salvato e **non** fa parte di preset, link `#mix=`, codice QR o scene. Testi nuovi scritti in RO/EN; traduzioni FR/IT/ES/PT/DE/HU automatiche (traduzione automatica, non verificata da madrelingua).
 
 ## Nuovi suoni e dissolvenza finale configurabile (2.1.0)
 

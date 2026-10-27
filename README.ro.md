@@ -71,7 +71,7 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Es
 
 ## Sunetul meu: fișier audio local (2.2.0)
 
-„Sunetul meu” încarcă un fișier audio de pe dispozitiv (maximum 25 MB și 5 minute) și îl redă în buclă, cu volum propriu, printr-un limitator (prag −12 dB, raport 20). Urmează volumul general, pauza și estomparea temporizatorului și intră în înregistrarea WAV a ieșirii. Rămâne doar în sesiunea curentă: nu se salvează nimic și **nu** face parte din presetări, linkul `#mix=`, codul QR sau scene (un fișier nu poate călători într-un link). „Oprește toate straturile” îl aduce la 0. Textele noi există în RO și EN; celelalte limbi folosesc engleza (traducere automată în așteptare).
+„Sunetul meu” încarcă un fișier audio de pe dispozitiv (maximum 25 MB și 5 minute) și îl redă în buclă, cu volum propriu, printr-un limitator (prag −12 dB, raport 20). Urmează volumul general, pauza și estomparea temporizatorului și intră în înregistrarea WAV a ieșirii. Rămâne doar în sesiunea curentă: nu se salvează nimic și **nu** face parte din presetări, linkul `#mix=`, codul QR sau scene (un fișier nu poate călători într-un link). „Oprește toate straturile” îl aduce la 0. Textele noi au fost scrise în RO și EN; traducerile FR/IT/ES/PT/DE/HU sunt automate, nevalidate de vorbitori nativi.
 
 ## Sunete noi și estompare configurabilă (2.1.0)
 

@@ -69,7 +69,7 @@ Téléchargez `index.html` et ouvrez-le dans un navigateur ; il n'a pas besoin d
 
 ## Mon son : un fichier audio local (2.2.0)
 
-« Mon son » charge un fichier audio de l’appareil (25 Mo et 5 minutes maximum) et le lit en boucle, avec son propre volume, via un limiteur (seuil −12 dB, ratio 20). Il suit le volume général, la pause et le fondu du minuteur. Il reste uniquement dans la session : rien n’est enregistré et il ne fait **pas** partie des préréglages, du lien `#mix=`, du code QR ni des scènes. Textes nouveaux en RO/EN, anglais pour les autres langues.
+« Mon son » charge un fichier audio de l’appareil (25 Mo et 5 minutes maximum) et le lit en boucle, avec son propre volume, via un limiteur (seuil −12 dB, ratio 20). Il suit le volume général, la pause et le fondu du minuteur. Il reste uniquement dans la session : rien n’est enregistré et il ne fait **pas** partie des préréglages, du lien `#mix=`, du code QR ni des scènes. Textes nouveaux écrits en RO/EN ; traductions FR/IT/ES/PT/DE/HU automatiques (traduction automatique, non validée par des locuteurs natifs).
 
 ## Nouveaux sons et fondu de sortie réglable (2.1.0)
 

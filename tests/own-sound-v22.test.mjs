@@ -97,7 +97,7 @@ console.log('Sunetul meu: încărcare, volum, limitator, buclă, oprire, elimina
 console.log('Sunetul meu: limbi');
 {
   const {ctx, p, errs} = await open('de');
-  t('germană: textele noi cad pe engleză', /My sound/.test(await p.textContent('.ownsound h2')) && /Choose an audio file/.test(await p.textContent('#ownPick')));
+  t('germană: textele noi sunt traduse (nu cad pe engleză)', /Mein Klang/.test(await p.textContent('.ownsound h2')) && /Audiodatei ausw/.test(await p.textContent('#ownPick')) && !/My sound/.test(await p.textContent('.ownsound h2')));
   t('germană: restul aplicației rămâne tradus', !/Stop all layers/.test(await p.textContent('#stopAll')));
   await p.selectOption('#langSelect', 'ro').catch(() => {});
   t('0 erori', errs.length === 0, errs);

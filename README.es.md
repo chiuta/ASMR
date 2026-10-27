@@ -69,7 +69,7 @@ Descarga `index.html` y ábrelo en un navegador; no necesita internet. Se necesi
 
 ## Mi sonido: un archivo de audio local (2.2.0)
 
-«Mi sonido» carga un archivo de audio del dispositivo (máximo 25 MB y 5 minutos) y lo reproduce en bucle, con su propio volumen, mediante un limitador (umbral −12 dB, razón 20). Sigue el volumen general, la pausa y el desvanecimiento del temporizador. Solo permanece en la sesión: no se guarda nada y **no** forma parte de presets, enlace `#mix=`, código QR ni escenas. Textos nuevos en RO/EN, inglés en los demás idiomas.
+«Mi sonido» carga un archivo de audio del dispositivo (máximo 25 MB y 5 minutos) y lo reproduce en bucle, con su propio volumen, mediante un limitador (umbral −12 dB, razón 20). Sigue el volumen general, la pausa y el desvanecimiento del temporizador. Solo permanece en la sesión: no se guarda nada y **no** forma parte de presets, enlace `#mix=`, código QR ni escenas. Textos nuevos escritos en RO/EN; traducciones FR/IT/ES/PT/DE/HU automáticas (traducción automática, no validada por hablantes nativos).
 
 ## Sonidos nuevos y desvanecimiento final configurable (2.1.0)
 

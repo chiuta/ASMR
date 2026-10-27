@@ -10,7 +10,7 @@ Stare: stabil · Offline: complet
 - **Sunetul meu**: încarci un fișier audio local (maximum 25 MB și 5 minute); se redă în buclă, cu volum propriu, printr-un limitator (DynamicsCompressor, prag −12 dB, raport 20). Urmează volumul general, pauza și estomparea temporizatorului; intră în înregistrarea WAV a ieșirii. „Oprește toate straturile” îl aduce la 0.
 - Rămâne doar în sesiune și NU intră în presetări, linkul `#mix=`, codul QR sau scene (un fișier nu poate fi pus într-un link și nu se salvează nimic).
 - README (8 limbi): listele de straturi completate cu Pârâu, Ventilator, Tunet îndepărtat; secțiune nouă; linia „Neimplementat încă” actualizată.
-- Texte noi RO + EN; celelalte limbi folosesc engleza (traducere automată în așteptare).
+- Texte noi scrise în RO și EN; traduceri FR/IT/ES/PT/DE/HU adăugate ulterior — traducere automată, nevalidată de vorbitori nativi.
 - Test nou `tests/own-sound-v22.test.mjs` (20 verificări: refuzuri de fișiere, limitator, buclă, volum, oprire, eliminare, limbi).
 
 ### Neimplementat

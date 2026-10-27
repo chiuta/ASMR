@@ -69,7 +69,7 @@ Töltsd le az `index.html` fájlt, és nyisd meg böngészőben; nincs szükség
 
 ## Saját hangom: helyi hangfájl (2.2.0)
 
-A „Saját hangom” egy hangfájlt tölt be az eszközről (legfeljebb 25 MB és 5 perc), és hurokban játssza le saját hangerővel, limiteren keresztül (küszöb −12 dB, arány 20). Követi a fő hangerőt, a szünetet és az időzítő elhalkulását. Csak a munkamenetben marad meg: semmi sem mentődik, és **nem** része az előbeállításoknak, a `#mix=` hivatkozásnak, a QR-kódnak vagy a jeleneteknek. Az új szövegek RO/EN nyelvűek, másutt angol.
+A „Saját hangom” egy hangfájlt tölt be az eszközről (legfeljebb 25 MB és 5 perc), és hurokban játssza le saját hangerővel, limiteren keresztül (küszöb −12 dB, arány 20). Követi a fő hangerőt, a szünetet és az időzítő elhalkulását. Csak a munkamenetben marad meg: semmi sem mentődik, és **nem** része az előbeállításoknak, a `#mix=` hivatkozásnak, a QR-kódnak vagy a jeleneteknek. Az új szövegek RO/EN nyelven készültek; az FR/IT/ES/PT/DE/HU fordítások automatikusak (gépi fordítás, anyanyelvi beszélők nem ellenőrizték).
 
 ## Új hangok és beállítható elhalkulás (2.1.0)
 

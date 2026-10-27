@@ -69,7 +69,7 @@ Descarregue `index.html` e abra-o no navegador; não precisa de internet. É nec
 
 ## O meu som: um ficheiro de áudio local (2.2.0)
 
-«O meu som» carrega um ficheiro de áudio do dispositivo (máximo 25 MB e 5 minutos) e reproduz-o em ciclo, com volume próprio, através de um limitador (limiar −12 dB, razão 20). Segue o volume geral, a pausa e o desvanecimento do temporizador. Fica apenas na sessão: nada é guardado e **não** faz parte de predefinições, ligação `#mix=`, código QR nem cenas. Textos novos em RO/EN, inglês nas outras línguas.
+«O meu som» carrega um ficheiro de áudio do dispositivo (máximo 25 MB e 5 minutos) e reproduz-o em ciclo, com volume próprio, através de um limitador (limiar −12 dB, razão 20). Segue o volume geral, a pausa e o desvanecimento do temporizador. Fica apenas na sessão: nada é guardado e **não** faz parte de predefinições, ligação `#mix=`, código QR nem cenas. Textos novos escritos em RO/EN; traduções FR/IT/ES/PT/DE/HU automáticas (tradução automática, não validada por falantes nativos).
 
 ## Sons novos e desvanecimento final configurável (2.1.0)
 

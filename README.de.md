@@ -69,7 +69,7 @@ Lade `index.html` herunter und öffne sie im Browser; sie braucht kein Internet.
 
 ## Mein Klang: eine lokale Audiodatei (2.2.0)
 
-„Mein Klang“ lädt eine Audiodatei vom Gerät (höchstens 25 MB und 5 Minuten) und spielt sie in Schleife mit eigener Lautstärke über einen Limiter (Schwelle −12 dB, Verhältnis 20). Er folgt der Gesamtlautstärke, der Pause und dem Ausblenden des Timers. Er bleibt nur in der Sitzung: nichts wird gespeichert, und er gehört **nicht** zu Voreinstellungen, `#mix=`-Link, QR-Code oder Szenen. Neue Texte in RO/EN, sonst Englisch.
+„Mein Klang“ lädt eine Audiodatei vom Gerät (höchstens 25 MB und 5 Minuten) und spielt sie in Schleife mit eigener Lautstärke über einen Limiter (Schwelle −12 dB, Verhältnis 20). Er folgt der Gesamtlautstärke, der Pause und dem Ausblenden des Timers. Er bleibt nur in der Sitzung: nichts wird gespeichert, und er gehört **nicht** zu Voreinstellungen, `#mix=`-Link, QR-Code oder Szenen. Neue Texte in RO/EN geschrieben; Übersetzungen FR/IT/ES/PT/DE/HU automatisch (maschinelle Übersetzung, nicht von Muttersprachlern geprüft).
 
 ## Neue Klänge und einstellbares Ausblenden (2.1.0)
 
