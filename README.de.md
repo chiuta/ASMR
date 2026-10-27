@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.1.0 · **Zuletzt aktualisiert:** 2026-10-27
+**Version:** 2.2.0 · **Zuletzt aktualisiert:** 2026-10-27
 
 **Status:** stabil · **Offline:** vollständig
 
@@ -20,7 +20,7 @@ Ein Klangmixer zur Entspannung, in schlichtem JavaScript geschrieben. Der Klang 
 
 ## Funktionen
 
-- **Klanglandschaften** (kombinierbare Ebenen, jede mit eigener Lautstärke): Regen, Meereswellen, Lagerfeuer, Wind, Nacht mit Grillen, Weißes Rauschen, Rosa Rauschen, Braunes Rauschen.
+- **Klanglandschaften** (kombinierbare Ebenen, jede mit eigener Lautstärke): Regen, Meereswellen, Lagerfeuer, Wind, Nacht mit Grillen, Weißes Rauschen, Rosa Rauschen, Braunes Rauschen, Bach, Ventilator, Fernes Donnern.
 - **Trigger**: Klopfen auf Holz, Klopfen auf Glas, Klopfen auf den Tisch, Wassertropfen, Umblättern einer Seite, Tastaturklick, Papierrascheln und Bürsten (durchgehende Textur, solange du gedrückt hältst).
 - **Visuelle ASMR-Effekte**: Kinetischer Sand, Luftpolsterfolie, Tinte im Wasser, Knackendes Eis, Symmetrisches Muster, Lichtwellen; Schaltfläche **Löschen**.
 - **Binaurale Beats**: die Bänder Delta, Theta, Alpha und Beta, mit getrennter Lautstärke und Schaltfläche **Starten**. Die App empfiehlt Stereo-Kopfhörer.
@@ -67,6 +67,10 @@ Informations- und Entspannungsinhalt; er ersetzt keinen ärztlichen Rat. Die Bes
 
 Lade `index.html` herunter und öffne sie im Browser; sie braucht kein Internet. Erforderlich ist ein Browser mit Unterstützung der Web Audio API und aktiviertem JavaScript.
 
+## Mein Klang: eine lokale Audiodatei (2.2.0)
+
+„Mein Klang“ lädt eine Audiodatei vom Gerät (höchstens 25 MB und 5 Minuten) und spielt sie in Schleife mit eigener Lautstärke über einen Limiter (Schwelle −12 dB, Verhältnis 20). Er folgt der Gesamtlautstärke, der Pause und dem Ausblenden des Timers. Er bleibt nur in der Sitzung: nichts wird gespeichert, und er gehört **nicht** zu Voreinstellungen, `#mix=`-Link, QR-Code oder Szenen. Neue Texte in RO/EN geschrieben; Übersetzungen FR/IT/ES/PT/DE/HU automatisch (maschinelle Übersetzung, nicht von Muttersprachlern geprüft).
+
 ## Neue Klänge und einstellbares Ausblenden (2.1.0)
 
 Drei neue, lokal synthetisierte Schichten: **Bach**, **Ventilator** und **Fernes Donnern** (seltenes Grollen, nur solange die Schicht aktiv ist). **Einstellbares Ausblenden** am Ende des Einschlaf-Timers: 10 s, 30 s (Standard), 2 min oder 5 min; die Wahl wird in `localStorage` (`asmr_ff_fade`) gespeichert. Der Timer gab es schon (15–90 min oder freie Dauer 1–480 min); ist das Ausblenden länger als die Restzeit, beginnt es sofort. Die neuen Schichten sind automatisch Teil der Voreinstellungen, des `#mix=`-Links, des QR-Codes und der Szenen.
@@ -76,6 +80,7 @@ Drei neue, lokal synthetisierte Schichten: **Bach**, **Ventilator** und **Fernes
 Diese Apps überschneiden sich im Zweck (beruhigender Klang zum Entspannen und Schlafen), arbeiten aber unterschiedlich und wurden **nicht zusammengeführt**. **ASMR** ist ein Mixer für Klanglandschaften und Berührungs-Trigger (ASMR) mit zeitlichen Szenen und Einschlaf-Timer. Siehe auch: [CalmWaves](https://chiuta.github.io/CalmWaves/) — eine generative Ambient-Komposition (Absicht, Tonpalette, Dichte) mit Variantencode, synthetisierter Stimme und Visualisierungen; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — ein Komponist originaler Musik nach Genre und Seed (WAV/FLAC/MIDI-Export, teilbare Codes) mit optionalen Entspannungsschichten; [Aurora](https://chiuta.github.io/Aurora/) — Chakra-Töne, binaurale Beats und Atemführung für die Meditation. Wähle nach Bedarf: Klanglandschaften und Trigger = ASMR; erzeugtes Ambient-Stück = CalmWaves; Musik nach Genre/Seed = BorderlessMelodies; Chakra-Meditation = Aurora.
 
 ## Verlauf / Changelog
+- **2.2.0 — 2026-10-27:** „Mein Klang“ (lokale Audiodatei, Schleife, Limiter, nur Sitzung); Ebenenlisten im README ergänzt; CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** neue Schichten (Bach, Ventilator, Fernes Donnern); einstellbare Ausblenddauer des Timers (10 s / 30 s / 2 min / 5 min); Hinweis „Siehe auch“ (CalmWaves, BorderlessMelodies, Aurora), ohne Zusammenführung; Zeilen Status/Offline; CHANGELOG.md (vorher: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße

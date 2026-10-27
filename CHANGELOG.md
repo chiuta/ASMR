@@ -2,6 +2,20 @@
 
 Format: [SemVer](https://semver.org/lang/ro/) MAJOR.MINOR.PATCH.
 
+## 2.2.0 — 2026-10-27 (anterior: v2.1.0)
+
+Stare: stabil · Offline: complet
+
+### Adăugat
+- **Sunetul meu**: încarci un fișier audio local (maximum 25 MB și 5 minute); se redă în buclă, cu volum propriu, printr-un limitator (DynamicsCompressor, prag −12 dB, raport 20). Urmează volumul general, pauza și estomparea temporizatorului; intră în înregistrarea WAV a ieșirii. „Oprește toate straturile” îl aduce la 0.
+- Rămâne doar în sesiune și NU intră în presetări, linkul `#mix=`, codul QR sau scene (un fișier nu poate fi pus într-un link și nu se salvează nimic).
+- README (8 limbi): listele de straturi completate cu Pârâu, Ventilator, Tunet îndepărtat; secțiune nouă; linia „Neimplementat încă” actualizată.
+- Texte noi scrise în RO și EN; traduceri FR/IT/ES/PT/DE/HU adăugate ulterior — traducere automată, nevalidată de vorbitori nativi.
+- Test nou `tests/own-sound-v22.test.mjs` (20 verificări: refuzuri de fișiere, limitator, buclă, volum, oprire, eliminare, limbi).
+
+### Neimplementat
+- Bibliotecă persistentă de sunete proprii (IndexedDB), mai multe fișiere simultan, partajarea fișierelor prin link: omise — fișierele pot fi mari și nu pot fi puse într-un link; se păstrează caracterul 100% local și fără stocare ascunsă.
+
 ## 2.1.0 — 2026-10-27 (anterior: v2.0.0)
 
 Stare: stabil · Offline: complet

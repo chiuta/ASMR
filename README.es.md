@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.1.0 · **Última actualización:** 2026-10-27
+**Versión:** 2.2.0 · **Última actualización:** 2026-10-27
 
 **Estado:** estable · **Sin conexión:** completo
 
@@ -20,7 +20,7 @@ Un mezclador de sonidos para relajarse, escrito en JavaScript sencillo. El sonid
 
 ## Funciones
 
-- **Paisajes sonoros** (capas combinables, cada una con su propio volumen): Lluvia, Olas del océano, Hoguera, Viento, Noche con grillos, Ruido blanco, Ruido rosa, Ruido marrón.
+- **Paisajes sonoros** (capas combinables, cada una con su propio volumen): Lluvia, Olas del océano, Hoguera, Viento, Noche con grillos, Ruido blanco, Ruido rosa, Ruido marrón, Arroyo, Ventilador, Trueno lejano.
 - **Desencadenantes**: Golpeteo en madera, Golpeteo en cristal, Golpeteo en mesa, Gota de agua, Página pasada, Clic de teclado, Crujido de papel y Cepillado (textura continua mientras lo mantienes pulsado).
 - **Efectos visuales ASMR**: Arena cinética, Plástico de burbujas, Tinta en el agua, Hielo que se agrieta, Patrón simétrico, Ondas de luz; botón **Limpiar**.
 - **Pulsos binaurales**: las bandas Delta, Theta, Alpha y Beta, con volumen separado y botón **Iniciar**. La aplicación recomienda auriculares estéreo.
@@ -67,6 +67,10 @@ Contenido informativo y de relajación; no sustituye el consejo médico. Las des
 
 Descarga `index.html` y ábrelo en un navegador; no necesita internet. Se necesita un navegador con compatibilidad con la Web Audio API y JavaScript activado.
 
+## Mi sonido: un archivo de audio local (2.2.0)
+
+«Mi sonido» carga un archivo de audio del dispositivo (máximo 25 MB y 5 minutos) y lo reproduce en bucle, con su propio volumen, mediante un limitador (umbral −12 dB, razón 20). Sigue el volumen general, la pausa y el desvanecimiento del temporizador. Solo permanece en la sesión: no se guarda nada y **no** forma parte de presets, enlace `#mix=`, código QR ni escenas. Textos nuevos escritos en RO/EN; traducciones FR/IT/ES/PT/DE/HU automáticas (traducción automática, no validada por hablantes nativos).
+
 ## Sonidos nuevos y desvanecimiento final configurable (2.1.0)
 
 Tres capas nuevas, sintetizadas localmente: **Arroyo**, **Ventilador** y **Trueno lejano** (rumores poco frecuentes, solo mientras la capa está activa). **Desvanecimiento final configurable** al terminar el temporizador para dormir: 10 s, 30 s (por defecto), 2 min o 5 min; la elección se guarda en `localStorage` (`asmr_ff_fade`). El temporizador ya existía (15–90 min o duración libre 1–480 min); si el desvanecimiento es más largo que el tiempo restante, empieza de inmediato. Las capas nuevas entran automáticamente en los preajustes, el enlace `#mix=`, el código QR y las escenas.
@@ -76,6 +80,7 @@ Tres capas nuevas, sintetizadas localmente: **Arroyo**, **Ventilador** y **Truen
 Estas aplicaciones se solapan en su propósito (sonido calmante para relajarse y dormir), pero funcionan de forma distinta y **no se han fusionado**. **ASMR** es un mezclador de paisajes sonoros y disparadores táctiles (ASMR), con escenas temporales y temporizador para dormir. Véase también: [CalmWaves](https://chiuta.github.io/CalmWaves/) — una composición ambiental generativa (intención, paleta tonal, densidad) con código de variante, voz sintetizada y visualizaciones; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — un compositor de música original por género y semilla (exportación WAV/FLAC/MIDI, códigos compartibles), con capas de relajación opcionales; [Aurora](https://chiuta.github.io/Aurora/) — tonos de los chakras, latidos binaurales y guía de respiración para meditar. Elige según la necesidad: paisajes y disparadores = ASMR; pieza ambiental generada = CalmWaves; música por género/semilla = BorderlessMelodies; meditación de chakras = Aurora.
 
 ## Historial / Changelog
+- **2.2.0 — 2026-10-27:** «Mi sonido» (archivo de audio local, bucle, limitador, solo sesión); listas de capas del README completadas; CHANGELOG.md.
 - **2.1.0 — 2026-10-27:** capas nuevas (Arroyo, Ventilador, Trueno lejano); duración del desvanecimiento del temporizador configurable (10 s / 30 s / 2 min / 5 min); nota «véase también» (CalmWaves, BorderlessMelodies, Aurora), sin fusión; líneas Estado/Sin conexión; CHANGELOG.md (anterior: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: objetivos táctiles y tamaño mínimo de texto
