@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.1.0 · **Last updated:** 2026-10-27
+
+**Status:** stable · **Offline:** complete
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -65,7 +67,16 @@ Informational and relaxation content; it does not replace medical advice. The de
 
 Download `index.html` and open it in a browser; it does not need internet. A browser with Web Audio API support and JavaScript enabled is required.
 
+## New sounds and configurable fade-out (2.1.0)
+
+Three new layers, synthesised locally: **Stream**, **Fan** and **Distant thunder** (rare rumbles, only while the layer is on). **Configurable fade-out** at the end of the sleep timer: 10 s, 30 s (default), 2 min or 5 min; the choice is kept in `localStorage` (`asmr_ff_fade`). The timer already existed (15–90 min or a custom 1–480 min); if the fade is longer than the time left, it starts immediately. The new layers are automatically part of presets, the `#mix=` link, the QR code and scenes.
+
+## See also: related apps (not merged)
+
+These apps overlap in purpose (calm sound for relaxation and sleep) but work differently and have **not been merged**. **ASMR** is a mixer of soundscapes and touch triggers (ASMR), with timed scenes and a sleep timer. See also: [CalmWaves](https://chiuta.github.io/CalmWaves/) — a generative ambient composition (intent, tonal palette, density) with a variant code, synthesised voice and visualisations; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — a composer of original music by genre and seed (with WAV/FLAC/MIDI export and shareable codes), with optional relaxation layers; [Aurora](https://chiuta.github.io/Aurora/) — chakra tones, binaural beats and a breathing guide for meditation. Pick by need: soundscapes and triggers = ASMR; a generated ambient piece = CalmWaves; music by genre/seed = BorderlessMelodies; chakra meditation = Aurora.
+
 ## History / Changelog
+- **2.1.0 — 2026-10-27:** new layers (Stream, Fan, Distant thunder); configurable fade-out duration for the timer (10 s / 30 s / 2 min / 5 min); “see also” note (CalmWaves, BorderlessMelodies, Aurora), no merge; Status/Offline lines; CHANGELOG.md (previous: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: touch targets and minimum text size
 - 1.2.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600,000 iterations, anti-clickjacking protection

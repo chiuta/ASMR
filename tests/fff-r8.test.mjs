@@ -1,4 +1,4 @@
-// Teste R8 pentru ASMR fără frontiere 2.0.0: înregistrare WAV, QR pentru mix, ghid vocal.
+// Teste R8 pentru ASMR fără frontiere 2.1.0: înregistrare WAV, QR pentru mix, ghid vocal.
 // Rulare: node tests/fff-r8.test.mjs   (Playwright din /opt/node-tools, rețea blocată)
 // [fff-portable] axe-core: FFF_AXE / AXE_PATH, apoi pachetul `axe-core` (npm i -D axe-core). Dacă lipsește: undefined (testele cu axe pică cu mesaj clar).
 import {createRequire as __fffCR} from 'node:module';

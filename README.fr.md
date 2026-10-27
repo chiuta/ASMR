@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.0.0 · **Dernière mise à jour :** 2026-10-26
+**Version :** 2.1.0 · **Dernière mise à jour :** 2026-10-27
+
+**État:** stable · **Hors ligne:** complet
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -65,7 +67,16 @@ Contenu informatif et de détente ; il ne remplace pas un avis médical. Les des
 
 Téléchargez `index.html` et ouvrez-le dans un navigateur ; il n'a pas besoin d'internet. Un navigateur prenant en charge la Web Audio API, avec JavaScript activé, est nécessaire.
 
+## Nouveaux sons et fondu de sortie réglable (2.1.0)
+
+Trois nouvelles couches, synthétisées localement : **Ruisseau**, **Ventilateur** et **Tonnerre lointain** (grondements rares, seulement tant que la couche est active). **Fondu de sortie réglable** à la fin de la minuterie d’endormissement : 10 s, 30 s (par défaut), 2 min ou 5 min ; le choix est conservé dans `localStorage` (`asmr_ff_fade`). La minuterie existait déjà (15–90 min ou durée libre 1–480 min) ; si le fondu est plus long que le temps restant, il commence immédiatement. Les nouvelles couches font automatiquement partie des préréglages, du lien `#mix=`, du code QR et des scènes.
+
+## Voir aussi : applications voisines (non fusionnées)
+
+Ces applications se recoupent par leur but (son apaisant pour la détente et le sommeil) mais fonctionnent différemment et n’ont **pas été fusionnées**. **ASMR** est un mixeur de paysages sonores et de déclencheurs tactiles (ASMR), avec scènes temporelles et minuterie d’endormissement. Voir aussi : [CalmWaves](https://chiuta.github.io/CalmWaves/) — une composition ambiante générative (intention, palette tonale, densité) avec code de variante, voix synthétisée et visualisations; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — un compositeur de musique originale par genre et graine (export WAV/FLAC/MIDI, codes partageables), avec couches de relaxation optionnelles; [Aurora](https://chiuta.github.io/Aurora/) — tons des chakras, battements binauraux et guide de respiration pour la méditation. Choisissez selon le besoin : paysages et déclencheurs = ASMR ; pièce ambiante générée = CalmWaves ; musique par genre/graine = BorderlessMelodies ; méditation sur les chakras = Aurora.
+
 ## Historique / Changelog
+- **2.1.0 — 2026-10-27 :** nouvelles couches (Ruisseau, Ventilateur, Tonnerre lointain) ; durée du fondu de sortie de la minuterie réglable (10 s / 30 s / 2 min / 5 min) ; note « voir aussi » (CalmWaves, BorderlessMelodies, Aurora), sans fusion ; lignes État/Hors ligne ; CHANGELOG.md (précédente : v2.0.0).
 
 - 1.2.3 — 2026-10-22 : fff-kit 1.1.4 : cibles tactiles et taille de texte minimale
 - 1.2.2 — 2026-10-22 : fff-kit 1.1.2 : PBKDF2 600 000 itérations, protection anti-clickjacking

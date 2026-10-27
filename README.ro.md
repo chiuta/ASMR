@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil · **Offline:** complet
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -67,7 +69,16 @@ Conținut informativ și de relaxare; nu înlocuiește sfatul medical. Descrieri
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Este nevoie de un browser cu suport Web Audio API și JavaScript activat.
 
+## Sunete noi și estompare configurabilă (2.1.0)
+
+Trei straturi noi, sintetizate local: **Pârâu**, **Ventilator** și **Tunet îndepărtat** (bubuituri rare, doar cât stratul e pornit). **Estompare (fade-out) configurabilă** la sfârșitul temporizatorului de adormire: 10 s, 30 s (implicit), 2 min sau 5 min; alegerea se păstrează în `localStorage` (`asmr_ff_fade`). Temporizatorul exista deja (15–90 min sau durată proprie 1–480 min); dacă estomparea e mai lungă decât timpul rămas, ea începe imediat. Straturile noi intră automat în presetări, linkul `#mix=`, codul QR și scene.
+
+## Vezi și: aplicații apropiate (nefuzionate)
+
+Aceste aplicații se suprapun ca scop (sunet calm pentru relaxare și somn), dar funcționează diferit și **nu au fost fuzionate**. **ASMR** este mixer de peisaje sonore și declanșatoare tactile (ASMR), cu scene în timp și temporizator de adormire. Vezi și: [CalmWaves](https://chiuta.github.io/CalmWaves/) — compoziție ambientală generativă (intenție, paletă tonală, densitate) cu cod de variantă, voce sintetizată și vizualizări; [BorderlessMelodies](https://chiuta.github.io/BorderlessMelodies/) — compozitor de muzică originală după gen și seed (cu export WAV/FLAC/MIDI și coduri partajabile), cu straturi opționale de relaxare; [Aurora](https://chiuta.github.io/Aurora/) — tonuri ale chakrelor, bătăi binaurale și ghid de respirație pentru meditație. Alege după nevoie: peisaje și declanșatoare = ASMR; piesă ambientală generată = CalmWaves; muzică după gen/seed = BorderlessMelodies; meditație pe chakre = Aurora.
+
 ## Istoric / Changelog
+- **2.1.0 — 2026-10-27:** straturi noi (Pârâu, Ventilator, Tunet îndepărtat); durata estompării (fade-out) la temporizator configurabilă (10 s / 30 s / 2 min / 5 min); notă „vezi și” (CalmWaves, BorderlessMelodies, Aurora), fără fuziune; linii Stare/Offline; CHANGELOG.md (anterior: v2.0.0).
 
 - 1.2.3 — 2026-10-22: fff-kit 1.1.4: ținte tactile și text minim
 - 1.2.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600 000 iterații, protecție anti-clickjacking

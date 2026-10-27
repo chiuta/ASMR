@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "asmr",
   "name": "ASMR fără frontiere",
-  "version": "2.0.0",
-  "updated": "2026-10-26",
+  "version": "2.1.0",
+  "updated": "2026-10-27",
   "description": "ASMR fără frontiere — peisaje sonore, declanșatoare tactile și bătăi binaurale, sintetizate local în browser.",
   "egress": [],
   "permissions": [
@@ -12,12 +12,13 @@
     "localStorage"
   ],
   "storageKeys": [
+    "asmr_ff_fade",
     "asmr_ff_lang",
     "asmr_ff_last",
     "asmr_ff_presets"
   ],
-  "sizeBytes": 387024,
-  "sha256": "44232a6f7199ef0186dbd8ec1c9ad9ea06c1db2e9c5b63d014d03a3b63797a02",
+  "sizeBytes": 392568,
+  "sha256": "9eb11795f41a93c533c42cd2da7c36982fe77ef959335c8708a6521ded1f6ff4",
   "csp": {
     "present": true,
     "directives": {
