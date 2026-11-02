@@ -1,4 +1,8 @@
+<<<<<<< ours
 // Teste R8 pentru ASMR fără frontiere 2.1.0: înregistrare WAV, QR pentru mix, ghid vocal.
+=======
+// Teste R8 pentru ASMR fără frontiere 1.2.5: înregistrare WAV, QR pentru mix, ghid vocal.
+>>>>>>> theirs
 // Rulare: node tests/fff-r8.test.mjs   (Playwright din /opt/node-tools, rețea blocată)
 // [fff-portable] axe-core: FFF_AXE / AXE_PATH, apoi pachetul `axe-core` (npm i -D axe-core). Dacă lipsește: undefined (testele cu axe pică cu mesaj clar).
 import {createRequire as __fffCR} from 'node:module';
@@ -49,7 +53,11 @@ console.log('Pornire și versiune');
   const {ctx, p, errs, net} = await open(1280, 800);
   t('0 pageerror/CSP', errs.length === 0, errs.join('|'));
   t('0 cereri de rețea', net() === 0);
+<<<<<<< ours
   t(`versiune ${__FFF_APP.version}`, await p.evaluate((__FFF_APP)=> document.querySelector('meta[name=application-version]').content === __FFF_APP.version && new RegExp(String.raw`v ${__FFF_APP.versionRe} · ${__FFF_APP.updatedRe}`).test(document.getElementById('app-version').textContent), {...__FFF_APP, versionRe: __fffRe(__FFF_APP.version), updatedRe: __fffRe(__FFF_APP.updated)}));
+=======
+  t('versiune 1.2.5', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.2.5' && /v 1\.2\.5 · 2026-10-23/.test(document.getElementById('app-version').textContent)));
+>>>>>>> theirs
   t('kit prezent (core,label,bundle,qr,tts)', await p.evaluate(() => !!(window.FFF && FFF.label && FFF.bundle && FFF.qr && FFF.tts)));
   t('panou R8 vizibil', await p.locator('#r8Panel').isVisible());
   await ctx.close();
