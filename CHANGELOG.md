@@ -2,6 +2,10 @@
 
 Format: [SemVer](https://semver.org/lang/ro/) MAJOR.MINOR.PATCH.
 
+## 2.2.6 — 2026-11-08
+
+Linkul cu mix (`#mix=`) listează straturile și banda binaurală înainte de aplicare (mesajul de stare și `title` pe butonul «Redă mixul din link»); chei noi `link_contents`, `link_bin` în 8 limbi.
+
 ## 2.2.3 — 2026-11-03
 
 Peisaj sonor comun (FFF): mixer Web Audio cu straturi de zgomot/ploaie/valuri/vânt/drone/ton, profile dormit/studiu/preparat (presetări, fără afirmații de efect), oprire automată, export/import sound/profile și randare WAV; local, fără server.

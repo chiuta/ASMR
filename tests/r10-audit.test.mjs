@@ -40,5 +40,12 @@ for (const h of ['#mix=rain~50&b=toString', '#mix=rain~50&b=constructor', '#mix=
   t('#mix= valid: butonul apare, stratul și banda se aplică', (await apply(p)) === true && await p.evaluate(() => document.querySelector('.layer-card[data-id="rain"] input[type=range]').value === '50' && document.getElementById('binauralBand').value === 'alpha') && errs.length === 0, errs);
   await ctx.close();
 }
+{
+  const {ctx, p} = await open('#mix=rain~60.fire~30&b=alpha');
+  const msg = await p.textContent('#presetMsg');
+  t('#mix= valid: straturile din link sunt listate înainte de aplicare', /Ploaie 60%/.test(msg) && /Foc de tabără 30%/.test(msg) && /binaural Alpha/.test(msg), msg);
+  t('#mix= valid: nimic nu e aplicat înainte de click', await p.evaluate(() => document.querySelector('.layer-card[data-id="rain"] input[type=range]').value !== '60'));
+  await ctx.close();
+}
 await b.close();
 console.log('\n' + ok + ' reușite, ' + bad + ' eșuate'); process.exit(bad ? 1 : 0);
